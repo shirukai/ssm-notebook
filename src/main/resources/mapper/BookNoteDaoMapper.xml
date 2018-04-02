@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notebook.dao.BookNoteDao">
+    <insert id="insertBook" parameterType="BookNote">
+        INSERT INTO notebook.book_note(bid, uid, tid, book_title, book_content,is_public) VALUES
+        (#{bid},#{uid},#{tid},#{bookTitle},#{bookContent},#{isPublic});
+        <selectKey keyProperty="bid" resultType="java.lang.String"
+                   order="BEFORE">
+            select uuid() from dual
+        </selectKey>
+    </insert>
+    <select id="getBookDetailByBid" resultType="BookNote">
+        SELECT
+            b.bid,
+            b.uid,
+            u.nick_name,
+            b.tid,
+            t.type,
+            b.book_title,
+            b.book_content,
+            b.view_number,
+            b.like_number,
+            b.is_public,
+            b.create_time,
+            b.modify_time
+        FROM notebook.book_note b, notebook.user u, notebook.type t
+        WHERE b.bid = #{bid} AND b.uid = u.uid AND b.tid = t.tid
+    </select>
+    <select id="getBookByUid" resultType="BookNote">
+        SELECT
+            b.bid,
+            b.uid,
+            u.nick_name,
+            b.tid,
+            t.type,
+            b.book_title,
+            b.view_number,
+            b.like_number,
+            b.is_public,
+            b.create_time,
+            b.modify_time
+        FROM notebook.book_note b, notebook.user u, notebook.type t
+        WHERE b.uid = #{uid} AND b.uid = u.uid AND b.tid = t.tid
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+    <select id="getBookByTid" resultType="BookNote">
+        SELECT
+            b.bid,
+            b.uid,
+            u.nick_name,
+            b.tid,
+            t.type,
+            b.book_title,
+            b.view_number,
+            b.like_number,
+            b.is_public,
+            b.create_time,
+            b.modify_time
+        FROM notebook.book_note b, notebook.user u, notebook.type t
+        WHERE b.tid = #{tid} AND b.uid = u.uid AND b.tid = t.tid
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+    <select id="getBookByReg" resultType="BookNote">
+        SELECT
+            b.bid,
+            b.uid,
+            u.nick_name,
+            b.tid,
+            t.type,
+            b.book_title,
+            b.view_number,
+            b.like_number,
+            b.is_public,
+            b.create_time,
+            b.modify_time
+        FROM notebook.book_note b, notebook.user u, notebook.type t
+        WHERE b.book_title LIKE '%${reg}%' OR b.book_content LIKE '%${reg}%' AND b.uid = #{uid}
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
+    <delete id="deleteBook">
+        DELETE FROM notebook.book_note
+        WHERE bid = #{bid}
+    </delete>
+    <update id="updateBook" parameterType="com.notebook.entity.BookNote">
+        UPDATE notebook.book_note
+        SET book_title = #{bookTitle},tid = #{tid},book_content = #{bookContent}, is_public = #{isPublic}
+        WHERE bid = #{bid}
+    </update>
+    <update id="updateBookByType">
+        UPDATE notebook.book_note
+        SET tid = #{newType}
+        WHERE tid = #{oldType}
+    </update>
+</mapper>

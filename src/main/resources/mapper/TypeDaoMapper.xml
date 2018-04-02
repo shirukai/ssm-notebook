@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notebook.dao.TypeDao">
+    <insert id="insertType" parameterType="Type">
+        INSERT INTO notebook.type(tid, uid,type) VALUES
+        (#{tid},#{uid},#{type})
+        <selectKey keyProperty="tid" resultType="java.lang.String"
+                   order="BEFORE">
+            select uuid() from dual
+        </selectKey>
+    </insert>
+    <select id="getTypeByUid" resultType="Type">
+        SELECT
+            tid,
+            uid,
+            type,
+            (SELECT COUNT(uid)
+             FROM notebook.book_note b
+             WHERE b.tid = t.tid AND b.uid = t.uid) AS 'bookNumber'
+        FROM notebook.type t
+        WHERE uid = #{uid}
+        ORDER BY create_time DESC
+    </select>
+    <select id="getNoType" resultType="Type">
+        SELECT
+            tid,
+            uid,
+            type
+        FROM notebook.type t
+        WHERE uid = #{uid} AND type = #{type}
+    </select>
+    <delete id="deleteType">
+        DELETE FROM notebook.type
+        WHERE tid = #{tid}
+    </delete>
+    <update id="updateType" parameterType="com.notebook.entity.Type">
+        UPDATE notebook.type
+        SET type = #{type}
+        WHERE tid = #{tid}
+    </update>
+</mapper>

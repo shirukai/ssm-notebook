@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notebook.dao.UserDao">
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO notebook.user(uid, user_name, user_pwd, nick_name,avatar) VALUES
+        (#{uid},#{userName},#{userPwd},#{nickName},#{avatar})
+        <selectKey keyProperty="uid" resultType="java.lang.String"
+                   order="BEFORE">
+            select uuid() from dual
+        </selectKey>
+    </insert>
+    <select id="verification" resultType="User">
+        SELECT *
+        FROM notebook.user
+        WHERE user_name = #{userName}
+    </select>
+    <select id="queryByUid" resultType="User">
+        SELECT
+            user_name,
+            nick_name,
+            avatar,
+            create_time,
+            modify_time,
+            (SELECT COUNT(*)
+             FROM notebook.user u, notebook.short_note s
+             WHERE u.uid = s.uid) AS 'short_number',
+            (SELECT COUNT(*)
+             FROM notebook.user u, notebook.book_note b
+             WHERE u.uid = b.uid) AS 'book_number'
+        FROM notebook.user
+    </select>
+</mapper>

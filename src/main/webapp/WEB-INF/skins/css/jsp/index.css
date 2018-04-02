@@ -1,0 +1,134 @@
+html, body {
+    background: #E7E7E7;
+}
+
+.container {
+    max-width: 90%;
+}
+
+.headImg {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #1DA1F2;
+    position: relative;
+    top: 62px;
+    left: 8px;
+    border: 2px solid white
+}
+
+.headImg img {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+.nameInfo {
+    position: relative;
+    left: 100px;
+    top: 6px;
+    width: 200px;
+}
+
+.neckName {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.useName {
+    font-size: 12px;
+    color: #657786;
+}
+
+.userInfo {
+    margin-top: 12px;
+}
+
+.infoTitle:hover {
+    color: #1DA1F2;
+}
+
+.infoNumber {
+    color: #1DA1F2;
+    font-size: 18px;
+}
+
+.notepads, .notebook {
+    text-align: center;
+}
+
+.animation-hover:hover {
+    transform: scale(0.98, 0.98);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.4s;
+}
+
+.animation-active:active {
+    transform: scale(1.02, 1.02);
+}
+
+#row1 {
+    margin-bottom: 10px
+}
+
+#row1 .animation-active {
+    background: white;
+}
+
+.info-img {
+    height: 95px;
+    background: #1DA1F2;
+}
+
+.info-content {
+    height: 120px;
+}
+
+.name {
+    color: #1DA1F2
+}
+
+.line {
+    width: 120px;
+    height: 2px;
+    background: #1DA1F2
+}
+
+.noteContent {
+    overflow: hidden;
+    height: 90px;
+}
+
+.createInfo {
+    color: #626262;
+    font-size: 12px;
+}
+
+.heart {
+    width: 20px;
+    height: 16px;
+}
+
+.heart:hover {
+    transform: scale(0.8, 0.8);
+}
+
+.heart:active {
+    transform: scale(1.2, 1.2);
+}
+
+.showNoteItems {
+    margin-bottom: 10px
+}
+
+.showNoteItems > .content {
+    height: 300px;
+    background: #fff;
+}
+
+.node-body {
+    padding: 20px;
+    height: 200px;
+    background: #fff;
+    margin-bottom: 10px;
+}

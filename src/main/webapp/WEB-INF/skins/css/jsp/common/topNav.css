@@ -1,0 +1,28 @@
+.navbar-brand {
+    color: #409EFF !important;
+}
+
+.navbar-light {
+    background: #fff
+}
+
+.active{
+    color: #409EFF !important;
+}
+
+.head-right {
+    margin-right: 40px;
+}
+
+.head-left {
+    margin-left: 4%;
+}
+
+.nav-head {
+    position: fixed;
+    width: 100%;
+    z-index: 1000000000;
+}
+.dropdown-menu.my-info{
+    margin-left: -20px;
+}

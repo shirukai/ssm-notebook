@@ -1,0 +1,119 @@
+html, body {
+    background: #E7E7E7;
+}
+
+.wrapper {
+    background: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 0 25px rgba(40, 47, 60, .05), 0 20px 25px rgba(40, 47, 60, .05), 0 3px 4px rgba(40, 47, 60, .05);
+}
+
+.animation-hover:hover {
+    transform: scale(0.98, 0.98);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.4s;
+}
+
+.animation-active:active {
+    transform: scale(1.02, 1.02);
+}
+
+.list_p {
+    font-size: 0.8rem;
+    margin-right: 20px;
+}
+
+.list_title {
+    height: 18px;
+    font-size: 0.9rem;
+    margin-left: 40px;
+}
+
+.deleteType {
+    display: none;
+}
+
+#writeBooks {
+    background: #409EFF;
+    color: #fff
+}
+
+.insert-type {
+    color: #409EFF
+}
+
+.delete-type {
+    color: #F56C6C;
+}
+
+.book-table-head {
+    font-weight: normal
+}
+
+.book-table-head span {
+    margin-left: 20px
+}
+
+.book-table-head span #type {
+    font-size: 12px
+}
+
+.danger {
+    color: #F56C6C;
+}
+
+.btn-xm {
+    padding: .2rem 1rem;
+    font-size: .4rem;
+    line-height: 1.4;
+    border-radius: .35rem;
+}
+
+#bookTableList_wrapper > div {
+    width: 100%;
+}
+
+#bookTableList_paginate {
+    margin: 6px 0;
+}
+
+#bookTableList_info {
+    padding-top: 6px;
+}
+
+.book {
+    margin-top: 10px;
+    display: none;
+    background: #fff;
+    width: 100%;
+    padding: 20px 10px 40px 10px;
+}
+
+.book-item {
+    height: 100%;
+}
+
+#bookView {
+    padding: 20px 40px 40px 40px;
+}
+
+#b_content img, #bookEditor img {
+    width: 100%;
+}
+
+.views {
+    margin-top: 6px;
+}
+
+.pagination > li > a {
+    padding: 6px 15px;
+}
+
+#bookEditor {
+    height: 650px;
+    margin-top: 10px;
+}
+
+#bookView > div h6 {
+    margin-bottom: 2px;
+}
