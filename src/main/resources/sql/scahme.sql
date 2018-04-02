@@ -1,5 +1,5 @@
 -- 创建数据库
-CREATE DATABASE `notebook_dev` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE `notebook` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- 创建用户表
 CREATE TABLE IF NOT EXISTS `user`(
