@@ -22,4 +22,6 @@ public interface BookNoteDao {
     List<BookNote> getBookByTid(@Param("tid") String tid, @Param("offset") int offset, @Param("limit") int limit);
 
     List<BookNote> getBookByReg(@Param("uid") String uid, @Param("reg") String reg, @Param("offset") int offset, @Param("limit") int limit);
+
+    List<BookNote> getPublicBook(@Param("offset") int offset, @Param("limit") int limit);
 }

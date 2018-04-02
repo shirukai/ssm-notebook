@@ -10,6 +10,6 @@ public interface NoteService {
     int updateNote(ShortNote shortNote);
     int updateViewNumber();
     int updateLikeNumber(String sid);
-    List<ShortNote> getAllByUid(String uid,int offset,int limit);
-
+    List<ShortNote> getAllByUid(String uid, int offset, int limit);
+    List<ShortNote> getPublicNote(int offset, int limit);
 }

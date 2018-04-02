@@ -14,6 +14,7 @@ var API = {
     "deleteNote": context + "/note/delete",
     "updateNote": context + "/note/update",
     "addLike": context + "/note/addLike",
+    "getPublicNote":context+"/note/findPublicNote",
     "getTypes": context + "/book/type/all",
     "addType": context + "/book/type/insert",
     "deleteType": context + "/book/type/delete",

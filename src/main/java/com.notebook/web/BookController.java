@@ -111,6 +111,19 @@ public class BookController {
         return resData(res);
     }
 
+    /**
+     * 获取所有用户的公开日志
+     */
+    @RequestMapping(value="/type/findAllList")
+    public Map findAllList(
+            @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
+            @RequestParam(value = "length", required = false, defaultValue = "10") int limit
+    ){
+        List types = new ArrayList();
+        types=bookService.getPublicBook(offset,limit);
+        return dataTableVO(types);
+    }
+
     private static Map dataTableVO(List list) {
         Map<String, Object> map = new HashMap<String, Object>();
         //获取数据总量

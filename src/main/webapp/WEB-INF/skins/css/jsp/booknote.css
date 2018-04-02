@@ -1,3 +1,34 @@
 html, body {
     background: #E7E7E7;
 }
+.list_style{
+    margin: 18px 0 0;
+    padding: 12px 10px;
+    height: 150px;
+
+}
+.managerlead{
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+    height: auto;
+    max-height: 40px;
+    margin: 4px 0 6px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    word-break: initial;
+    color: #6a6a6a;
+}
+.createInfo{
+    font-size: 13px;
+    line-height: 20px;
+    color: #9d9d9d;
+    line-height: 20px;
+    overflow: hidden;
+    height: auto;
+    max-height: 40px;
+    margin: 4px 0 6px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    word-break: initial;
+}

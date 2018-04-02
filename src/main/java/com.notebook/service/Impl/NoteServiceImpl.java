@@ -36,4 +36,8 @@ public class NoteServiceImpl implements NoteService {
     public int updateNote(ShortNote shortNote) {
         return shortNoteDao.updateShort(shortNote);
     }
+
+    public List<ShortNote> getPublicNote(int offset, int limit){
+        return shortNoteDao.getPublicNote(offset,limit);
+    }
 }

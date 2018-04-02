@@ -96,4 +96,18 @@
         SET tid = #{newType}
         WHERE tid = #{oldType}
     </update>
+    <select id="getPublicBook" resultType="BookNote">
+        SELECT
+        b.nick_name,
+        a.*
+        FROM
+        book_note a,
+        user b
+        WHERE
+        a.uid = b.uid
+        AND is_public = "1"
+        ORDER BY
+        modify_time DESC
+        LIMIT #{offset},#{limit}
+    </select>
 </mapper>

@@ -28,4 +28,13 @@
     <update id="addLikeNumber">
         UPDATE notebook.short_note SET  like_number=like_number+1 WHERE sid=#{sid}
     </update>
+    <select id="getPublicNote" resultType="ShortNote">
+        SELECT
+        a.*,b.nick_name as 'nickName'
+        FROM notebook.short_note a,user b
+        WHERE is_public="1"
+        AND a.uid=b.uid
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{limit}
+    </select>
 </mapper>

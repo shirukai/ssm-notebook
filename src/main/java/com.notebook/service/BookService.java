@@ -17,5 +17,6 @@ public interface BookService {
     int updateType(Type type);
     int deleteType(String tid,String uid)throws Exception;
     List<Type> getTypesByUid(String uid);
+    List<BookNote> getPublicBook(int offset,int limit);
 
 }

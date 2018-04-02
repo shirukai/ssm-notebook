@@ -99,4 +99,8 @@ public class BookServiceImpl implements BookService {
     public List<Type> getTypesByUid(String uid) {
         return typeDao.getTypeByUid(uid);
     }
+
+    public List<BookNote> getPublicBook(int offset,int limit){
+        return bookNoteDao.getPublicBook(offset,limit);
+    }
 }

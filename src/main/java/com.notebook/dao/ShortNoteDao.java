@@ -12,4 +12,5 @@ public interface ShortNoteDao {
     int addLikeNumber(String sid);
 
     List<ShortNote> queryShortByUid(@Param("uid") String uid, @Param("offset") int offset, @Param("limit") int limit);
+    List<ShortNote> getPublicNote(@Param("offset") int offset, @Param("limit") int limit);
 }
