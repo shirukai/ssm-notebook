@@ -52,6 +52,6 @@
     </div>
 </script>
 
-<script type="text/javascript" src="<%=request.  getContextPath()%>/skins/js/jsp/booknote.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/skins/js/jsp/booknote.js"></script>
 </body>
 </html>
