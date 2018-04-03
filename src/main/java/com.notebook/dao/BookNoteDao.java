@@ -5,6 +5,7 @@ import com.notebook.entity.Type;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BookNoteDao {
     int insertBook(BookNote bookNote);
@@ -24,4 +25,5 @@ public interface BookNoteDao {
     List<BookNote> getBookByReg(@Param("uid") String uid, @Param("reg") String reg, @Param("offset") int offset, @Param("limit") int limit);
 
     List<BookNote> getPublicBook(@Param("offset") int offset, @Param("limit") int limit);
+    List<Map> findUserRank();
 }

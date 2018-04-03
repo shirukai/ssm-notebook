@@ -4,6 +4,7 @@ import com.notebook.entity.BookNote;
 import com.notebook.entity.Type;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BookService {
     int insertBook(BookNote bookNote);
@@ -18,5 +19,6 @@ public interface BookService {
     int deleteType(String tid,String uid)throws Exception;
     List<Type> getTypesByUid(String uid);
     List<BookNote> getPublicBook(int offset,int limit);
+    List<Map> findUserRank();
 
 }

@@ -7,54 +7,7 @@
     <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/default.css">--%>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/jsp/shortnote.css">
     <style type="text/css">
-        #gallery-wrapper {
-            position: relative;
-            max-width: 100%;
-            width: 100%;
-            margin: 50px auto;
-        }
 
-        img.thumb {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .white-panel {
-            position: absolute;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
-            padding: 10px;
-        }
-
-        .white-panel h1 {
-            font-size: 1em;
-        }
-
-        .white-panel h1 a {
-            color: #A92733;
-        }
-
-        .white-panel:hover {
-            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-            margin-top: -5px;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-        .createInfo {
-            color: #626262;
-            font-size: 12px;
-        }
-        .heart {
-            width: 20px;
-            height: 16px;
-        }
-        .noteContent {
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
@@ -63,10 +16,9 @@
 //列表
 <div class="container">
     <div class="row">
-    <section id="gallery-wrapper">
+        <section id="gallery-wrapper">
 
-
-    </section>
+        </section>
     </div>
 </div>
 <script type="text/html" id="showNoteItems">

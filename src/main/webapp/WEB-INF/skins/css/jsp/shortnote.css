@@ -7,7 +7,6 @@ html, body {
     width: 100%;
     margin: 50px auto;
 }
-
 img.thumb {
     width: 100%;
     max-width: 100%;
@@ -45,4 +44,12 @@ img.thumb {
 .heart {
     width: 20px;
     height: 16px;
+}
+.noteContent {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.container{
+    padding-top: 0px;
+    margin-top: 8px;
 }

@@ -48,6 +48,11 @@ public class BookController {
         types = bookService.getPublicBook(offset, limit);
         return dataTableVO(types);
     }
+    @RequestMapping(value = "findUserRank")
+    public Map findUserRank (){
+        List types=bookService.findUserRank();
+        return dataTableVO(types);
+    }
 
     private static Map dataTableVO(List list){
         Map<String, Object> map = new HashMap<String, Object>();

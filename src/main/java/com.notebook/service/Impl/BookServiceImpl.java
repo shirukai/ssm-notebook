@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -102,5 +103,8 @@ public class BookServiceImpl implements BookService {
 
     public List<BookNote> getPublicBook(int offset,int limit){
         return bookNoteDao.getPublicBook(offset,limit);
+    }
+    public List<Map> findUserRank(){
+        return bookNoteDao.findUserRank();
     }
 }
