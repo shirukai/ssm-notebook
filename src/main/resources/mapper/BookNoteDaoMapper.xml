@@ -98,17 +98,27 @@
         WHERE tid = #{oldType}
     </update>
     <select id="getPublicBook" resultType="BookNote">
-        SELECT
-            b.nick_name,
-            a.*
+    SELECT
+        b.nick_name,
+        a.book_title,
+        c.type,
+        a.uid,
+        a.bid,
+        a.tid,
+        a.is_public,
+        substring(a.book_content, 1, 300) AS bookContent,
+        a.view_number,
+        a.like_number,
+        a.create_time,
+        a.modify_time
         FROM
-            book_note a,
-            user b
+        book_note a,
+        user b,
+        type c
         WHERE
-            a.uid = b.uid
-            AND is_public = "1"
-        ORDER BY
-            modify_time DESC
-        LIMIT #{offset}, #{limit}
+        a.uid = b.uid
+        AND is_public = "1"
+        AND a.tid = c.tid
+        ORDER BY modify_time DESC
     </select>
 </mapper>

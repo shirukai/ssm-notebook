@@ -60,9 +60,11 @@
 <body>
 <!-- 导航栏 -->
 <%@include file="common/topNav.jsp" %>
+//列表
 <div class="container">
     <div class="row">
     <section id="gallery-wrapper">
+
 
     </section>
     </div>

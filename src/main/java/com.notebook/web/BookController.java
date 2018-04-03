@@ -39,7 +39,7 @@ public class BookController {
     /**
      * 获取所有用户的公开日志
      */
-    @RequestMapping(value = "/book/findAllList")
+    @RequestMapping(value = "/findAllList")
     public Map findAllList(
             @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
             @RequestParam(value = "length", required = false, defaultValue = "10") int limit
@@ -49,7 +49,7 @@ public class BookController {
         return dataTableVO(types);
     }
 
-    private static Map dataTableVO(List list) {
+    private static Map dataTableVO(List list){
         Map<String, Object> map = new HashMap<String, Object>();
         //获取数据总量
         int dataTotal = list.size();

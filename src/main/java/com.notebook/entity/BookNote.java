@@ -6,6 +6,7 @@ public class BookNote {
     private String bid;
     private String uid;
     private String nickName;
+    private String avatar;
     private String tid;
     private String type;
     private String bookTitle;
@@ -112,12 +113,21 @@ public class BookNote {
         this.modifyTime = modifyTime;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "BookNote{" +
                 "bid='" + bid + '\'' +
                 ", uid='" + uid + '\'' +
                 ", nickName='" + nickName + '\'' +
+                ", avatar='" + avatar + '\'' +
                 ", tid='" + tid + '\'' +
                 ", type='" + type + '\'' +
                 ", bookTitle='" + bookTitle + '\'' +
