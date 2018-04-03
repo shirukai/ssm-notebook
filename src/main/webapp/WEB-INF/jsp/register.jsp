@@ -10,7 +10,7 @@
     <div class="text-center">
         <h2 class="logo-text">NOTEBOOK</h2>
         <h6>用心记录点滴生活</h6>
-        <img class="avatar" src="../skins/img/logo.jpg">
+        <img class="avatar" src="">
         <input type="file" id="avatarFile">
         <input type="hidden" name="avatar" id="avatar">
         <div class="modify-title">点击头像修改</div>

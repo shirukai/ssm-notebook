@@ -25,15 +25,15 @@
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container wrapper">
     <div class="book" id="bookView">
         <input type="hidden" id="b_id" value="">
         <div class="pull-right">
-            <h6><span class="fa fa-clock-o"></span>创建时间： <fmt:formatDate value="${book.modifyTime}"
-                                                                         pattern="yyyy年MM月dd日 HH时mm分ss秒"/><span
+            <h6><span class="fa fa-clock-o"></span>&nbsp;&nbsp;创建时间： <fmt:formatDate value="${book.modifyTime}"
+                                                                                     pattern="yyyy年MM月dd日 HH时mm分ss秒"/><span
                     id="b_time"></span></h6>
-            <h6><span class=""></span>分类：<a id="b_type">${book.type}</a></h6>
-            <h6><span class=""></span>状态：<a id="b_state">${book.isPublic==1?"公开":"不公开"}</a></h6>
+            <h6><span class="fa fa-th-large"></span>&nbsp;&nbsp;分类：<a id="b_type">${book.type}</a></h6>
+            <h6><span class="fa fa-eye"></span>&nbsp;&nbsp;状态：<a id="b_state">${book.isPublic==1?"公开":"不公开"}</a></h6>
         </div>
         <br>
         <div style="margin-top:58px">

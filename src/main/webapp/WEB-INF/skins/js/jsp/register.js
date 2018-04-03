@@ -1,6 +1,16 @@
+var avatars = [
+    "http://ov1a6etyz.bkt.clouddn.com/201804031726_558.jpg",
+    "http://ov1a6etyz.bkt.clouddn.com/201804031726_264.jpeg",
+    "http://ov1a6etyz.bkt.clouddn.com/201804031727_325.jpg",
+    "http://ov1a6etyz.bkt.clouddn.com/201804031727_606.jpeg",
+    "http://ov1a6etyz.bkt.clouddn.com/201804031727_382.jpg"
+
+];
+var avatar = avatars[random(0, 4)];
+$('#avatar').val(avatar);
 $('.avatar').bind('click', function () {
     $('#avatarFile').click()
-});
+}).attr('src', avatar);
 $('#avatarFile').change(function () {
     //获取文件
     var files = $(this)[0].files,
@@ -20,19 +30,25 @@ $('.input-register input').bind('blur', verification).bind('focus', initInput);
 var result = true;
 $('#register').click(function () {
     verificationAll()
-    if(result){
+    if (result) {
         $.ajax({
             url: API['register'],
             type: 'POST',
             data: $('.form-register').serialize(),
             success: function (data) {
-                if(data['state']===1){
-                    window.location.href = context+"/notebook/index"
+                if (data['state'] === 1) {
+                    window.location.href = context + "/notebook/index"
                 }
             }
         })
     }
 })
+
+//生成随机数
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 // 上传头像
 function uploadAvatar(file) {
     var formdata = new FormData();
@@ -92,7 +108,7 @@ function verification() {
                         url: API['checkUserName'],
                         type: 'POST',
                         data: {"userName": val},
-                        async:false,
+                        async: false,
                         success: function (data) {
                             result = (data['state'] === 1);
                             msg = data['data']

@@ -163,7 +163,7 @@ html, body {
 }
 
 .book-item > .title {
-    width: 78%;
+    width: 72%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

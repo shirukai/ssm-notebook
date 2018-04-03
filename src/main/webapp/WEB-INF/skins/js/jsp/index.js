@@ -1,24 +1,26 @@
 //获取用户信息
 $(function () {
-    $.ajax({
-        url: API['getUserInfo'],
-        type: "GET",
-        data: {'uid': userInfo['uid']},
-        success: function (d) {
-            $('#userHeadImg').attr('src', d['data']['avatar']);
-            $('.nickName').text(d['data']['nickName']);
-            $('.useName').text(d['data']['userName']);
-            $('#noteNumber').text(d['data']['noteNumber']);
-            $('#bookNumber').text(d['data']['bookNumber'])
-        }
-    })
+    console.log(userInfo)
+    if (userInfo !== undefined) {
+        $.ajax({
+            url: API['getUserInfo'],
+            type: "GET",
+            data: {'uid': userInfo['uid']},
+            success: function (d) {
+                $('#userHeadImg').attr('src', d['data']['avatar']);
+                $('.nickName').text(d['data']['nickName']);
+                $('.useName').text(d['data']['userName']);
+                $('#noteNumber').text(d['data']['noteNumber']);
+                $('#bookNumber').text(d['data']['bookNumber'])
+            }
+        })
+    }
     loadNote();
     loadBooks();
 
 });
 
 function target(e) {
-    console.log($(e).attr('href'))
     window.open($(e).attr('href'))
 }
 
@@ -43,7 +45,6 @@ function loadNote() {
 
 //加载笔记
 function loadBooks() {
-
     $.ajax({
         url: API['getBookList'],
         type: 'GET',

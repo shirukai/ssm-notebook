@@ -25,13 +25,11 @@
                     <div class="userInfo row">
                         <div class="notepads col-xl col-4">
                             <span class="infoTitle">便签</span><br>
-                            <a class="infoNumber" id="noteNumber" href="/admin/notebook/noteManager"
-                               target="_blank">无</a>
+                            <a class="infoNumber" id="noteNumber" href="/admin/notebook/noteManager">无</a>
                         </div>
                         <div class="notebook col-xl col-4">
                             <span class="infoTitle">笔记</span><br>
-                            <a class="infoNumber" id="bookNumber" href="/admin/notebook/bookManager"
-                               target="_blank">>无</a>
+                            <a class="infoNumber" id="bookNumber" href="/admin/notebook/bookManager">无</a>
                         </div>
                         <div class="notebook col-xl col-4">
                             <span class="infoTitle">收藏</span><br>
