@@ -42,7 +42,7 @@
                 </span>
             </div>
             <!-- 笔记列表 -->
-            <div class="book" id="bookList">
+            <div class="book wrapper" id="bookList">
                 <table id="bookTableList" class="table table-bordered table-hover table-striped">
                     <thead>
                     <tr>
@@ -56,7 +56,7 @@
                 </table>
             </div>
             <!--编写笔记-->
-            <div class="book" id="bookEdit">
+            <div class="book wrapper" id="bookEdit">
                 <div class="pull-right">
                     <h6><span class="fa fa-clock-o"></span><span class="nowTime"></span></h6>
                 </div>
@@ -88,13 +88,13 @@
                 </div>
             </div>
             <!--查看笔记-->
-            <div class="book" id="bookView">
+            <div class="book wrapper" id="bookView">
                 <input type="hidden" id="b_id" value="">
                 <div class="pull-right">
-                    <h6><span class="fa fa-clock-o"></span>创建时间：<span
+                    <h6><span class="fa fa-clock-o"></span>&nbsp;&nbsp;创建时间：<span
                             id="b_time"></span></h6>
-                    <h6><span class=""></span>分类：<a id="b_type"></a></h6>
-                    <h6><span class=""></span>状态：<a id="b_state"></a></h6>
+                    <h6><span class="fa fa-th-large"></span>&nbsp;&nbsp;分类：<a id="b_type"></a></h6>
+                    <h6><span class="fa fa-eye"></span>&nbsp;&nbsp;状态：<a id="b_state"></a></h6>
                 </div>
                 <br>
                 <div style="margin-top:58px">
