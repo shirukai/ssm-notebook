@@ -15,13 +15,14 @@
         <%--文章列表--%>
         </div>
         <div class="col-lg-3">
-            <div style="background: #ffffff;height: 300px; "  id="managertype">
-                <div class="user_top" style="padding-top: 5px;">
-                    <div class="col-1 pull-left"> </div>
+            <div style="background: #ffffff;height: 300px;padding: 20px;"  id="userTop">
+                <div class="row user_top" style="padding-top: 5px;">
+                    <div class="col-1 pull-left"></div>
                     <div class="col-6 pull-left"> 用户名</div>
                     <div class="col-4 pull-right" > 文章数</div>
                 </div>
-                <hr/>
+                <hr style="padding: 0px;margin:0px;"/>
+                <%--用户排名--%>
             </div>
         </div>
     </div>
@@ -56,7 +57,15 @@
         </div>
     </div>
 </script>
-
+<script type="text/html" id="user_top">
+    <a href="#" style="text-decoration:none;">
+        <div class="row user_top" style="padding-top: 5px;" id="[uid]">
+            <div class="col-1 pull-left rownumber">[rowNumber]</div>
+            <div class="col-6 pull-left nickname">[nickName]</div>
+            <div class="col-4 pull-right numberbook" >[numberBook]</div>
+        </div>
+    </a>
+</script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/skins/js/jsp/booknote.js"></script>
 </body>
 </html>

@@ -25,7 +25,8 @@ var API = {
     "saveBook": context + "/admin/book/insert",
     "updateBook": context + "/admin/book/update",
     "deleteBook": context + "/admin/book/delete",
-    "getBookList":context+"/book/findAllList"
+    "getBookList":context+"/book/findAllList",
+    "findUserTop":context+"/book/findUserRank"
 }
 
 //时间转换

@@ -31,3 +31,9 @@ html, body {
     text-justify: inter-ideograph;
     word-break: initial;
 }
+.numberbook{
+    text-align: center;
+}
+.pull-left{
+    text-align: left;
+}

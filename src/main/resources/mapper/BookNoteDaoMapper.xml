@@ -124,19 +124,26 @@
     LIMIT #{offset},#{limit}
     </select>
     <select id="findUserRank" resultType="Map">
-        SELECT
-            a.uid uid,
-            a.nick_name NAME,
-            COUNT(b.bid) number_book
-        FROM
-            user a,
-            book_note b
-        WHERE
-            a.uid = b.uid
-        GROUP BY
-            a.nick_name
-        ORDER BY
-            number_book DESC
-        LIMIT 5
+    SELECT
+        @ROWNO := @ROWNO + 1 AS rowNumber,
+        t.*
+    FROM
+        (
+            SELECT
+                a.uid uid,
+                a.nick_name nickName,
+                COUNT(b.bid) numberBook
+            FROM
+                user a,
+                book_note b
+            WHERE
+                a.uid = b.uid
+            GROUP BY
+                nickName
+            ORDER BY
+                numberBook DESC
+            LIMIT 5
+        ) t,
+        (SELECT(@ROWNO := 0)) c
     </select>
 </mapper>

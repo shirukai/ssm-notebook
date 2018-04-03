@@ -1,7 +1,40 @@
 var start=0;
-var length=5;
+var length=5;//
+//动态添加文章列表
 findBookList(start,length);
-//获取列表信息
+//动态添加用户排名
+findUserTOP();
+function  findUserTOP(){
+    $.ajax({
+        url: API['findUserTop'],
+        type: 'GET',
+        data: "",
+        success: function (result) {
+            console.log(result);
+            if (result['state'] !== 0) {
+                $.each(result['aaData'], function (index, info) {
+                    console.log(info);
+                    addUserTopToView(info)
+                });
+            } else {
+
+            }
+        }
+    });
+}
+function addUserTopToView(info) {
+    html = document.getElementById("user_top").innerHTML, reg = new RegExp("\\[([^\\[\\]]*?)\\]", 'igm'),
+        source = html.replace(reg, function (node, key) {
+            return {
+                'uid': info['uid'],
+                'numberBook': info['numberBook'],
+                'nickName': info['nickName'],
+                'rowNumber': info['rowNumber']
+            }[key]
+        });
+    $("#userTop").append(source)
+}
+//获取文章列表信息
 function  findBookList(
     start,length
 ){
@@ -79,4 +112,4 @@ $(function(){
 
         }
     })
-});
+})
