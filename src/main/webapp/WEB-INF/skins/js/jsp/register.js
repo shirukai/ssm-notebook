@@ -35,7 +35,7 @@ $('#register').click(function () {
 })
 // 上传头像
 function uploadAvatar(file) {
-    const formdata = new FormData();
+    var formdata = new FormData();
     formdata.append('file', file);
     $.ajax({
         url: API['uploadAvatar'],
@@ -81,7 +81,7 @@ function verification() {
             msg = "长度为3-16个字符"
         } else {
             if ($(this).attr("id") === "userName") {
-                var phone = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/.test(val)
+                var phone = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/.test(val)
                 var email = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(val)
                 if (!phone && !email) {
                     result = false;
@@ -99,14 +99,16 @@ function verification() {
                         }
                     })
                 }
-            } else if ($(this).attr("id") === "password") {
-                var reg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/.test(val)
-                if (!reg) {
-                    result = false;
-                    msg = "必须包含大小写字母、数字、特殊字符"
-                }
-
-            } else if ($(this).attr("id") === "rePassword") {
+            }
+            // else if ($(this).attr("id") === "password") {
+            //     var reg = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/.test(val)
+            //     if (!reg) {
+            //         result = false;
+            //         msg = "必须包含大小写字母、数字、特殊字符"
+            //     }
+            //
+            // }
+            else if ($(this).attr("id") === "rePassword") {
                 if ($('#password').val() !== val) {
                     result = false;
                     msg = "两次密码不一致"

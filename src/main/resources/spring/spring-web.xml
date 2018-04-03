@@ -36,11 +36,11 @@
     <!--登录拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/notebook/login"/>
-            <mvc:exclude-mapping path="/notebook/register"/>
-            <mvc:exclude-mapping path="/user/**"/>
-            <mvc:exclude-mapping path="/skins/**"/>
+            <mvc:mapping path="/admin/**"/>
+            <!--<mvc:exclude-mapping path="/notebook/login"/>-->
+            <!--<mvc:exclude-mapping path="/notebook/register"/>-->
+            <!--<mvc:exclude-mapping path="/user/**"/>-->
+            <!--<mvc:exclude-mapping path="/skins/**"/>-->
             <bean class="com.notebook.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

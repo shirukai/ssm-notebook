@@ -22,54 +22,6 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value = "/bookByUid")
-    public Map getBookByUid(
-            @RequestParam(value = "uid", required = false) String uid,
-            @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
-            @RequestParam(value = "length", required = false, defaultValue = "10") int limit
-    ) {
-        List books = bookService.getBooksByUid(uid, offset, limit);
-        return dataTableVO(books);
-    }
-
-    @RequestMapping(value = "/bookByTid")
-    public Map getBookByTid(
-            @RequestParam(value = "tid", required = false) String tid,
-            @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
-            @RequestParam(value = "length", required = false, defaultValue = "10") int limit
-    ) {
-        List books = bookService.getBooksByType(tid, offset, limit);
-        return dataTableVO(books);
-    }
-
-    @RequestMapping(value = "/bookByReg")
-    public Map getBookByReg(
-            @RequestParam(value = "uid", required = false) String uid,
-            @RequestParam(value = "reg", required = false) String reg,
-            @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
-            @RequestParam(value = "length", required = false, defaultValue = "10") int limit
-    ) {
-        List books = bookService.getBooksByReg(uid, reg, offset, limit);
-        return dataTableVO(books);
-    }
-
-    @RequestMapping(value = "/insert")
-    public Map insertBook(BookNote bookNote) {
-        return resData(bookService.insertBook(bookNote));
-    }
-
-    @RequestMapping(value = "/update")
-    public Map updateBook(BookNote bookNote) {
-        return resData(bookService.updateBook(bookNote));
-    }
-
-    @RequestMapping(value = "/delete")
-    public Map deleteBook(
-            @RequestParam(value = "bid", required = false) String bid
-    ) {
-        return resData(bookService.deleteBook(bid));
-    }
-
     @RequestMapping(value = "/bookDetail")
     public Map getBookDetailByBid(
             @RequestParam(value = "bid", required = false) String bid) {
@@ -84,43 +36,16 @@ public class BookController {
         return resData(state, bookNote);
     }
 
-    @RequestMapping(value = "/type/all")
-    public Map getTypesByUid(
-            @RequestParam(value = "uid", required = false) String uid
-    ) {
-        List types = bookService.getTypesByUid(uid);
-        return dataTableVO(types);
-    }
-
-    @RequestMapping(value = "/type/insert")
-    public Map insertType(Type type) {
-        return resData(bookService.insertType(type));
-    }
-
-    @RequestMapping(value = "/type/delete")
-    public Map deleteType(
-            @RequestParam(value = "tid", required = false) String tid,
-            @RequestParam(value = "uid", required = false) String uid
-    ) {
-        int res = 0;
-        try {
-            res = bookService.deleteType(tid, uid);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resData(res);
-    }
-
     /**
      * 获取所有用户的公开日志
      */
-    @RequestMapping(value="/type/findAllList")
+    @RequestMapping(value = "/book/findAllList")
     public Map findAllList(
             @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
             @RequestParam(value = "length", required = false, defaultValue = "10") int limit
-    ){
+    ) {
         List types = new ArrayList();
-        types=bookService.getPublicBook(offset,limit);
+        types = bookService.getPublicBook(offset, limit);
         return dataTableVO(types);
     }
 

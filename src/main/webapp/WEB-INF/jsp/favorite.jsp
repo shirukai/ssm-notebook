@@ -6,7 +6,11 @@
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/jsp/favorite.css">
 </head>
 <body>
-<h1>收藏夹</h1>
+<!-- 导航栏 -->
+<%@include file="common/topNav.jsp" %>
+<div class="container">
+    <h1>收藏夹</h1>
+</div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/skins/js/jsp/favorite.js"></script>
 </body>
 </html>

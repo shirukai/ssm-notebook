@@ -1,10 +1,11 @@
-loadNote({'uid': userInfo['uid']})
+loadNote();
+
 //加载便签
-function loadNote(pageInfo) {
+function loadNote() {
     $.ajax({
         url: API['getPublicNote'],
-        type: 'POST',
-        data: pageInfo,
+        type: 'GET',
+        data: "",
         success: function (result) {
             console.log(result);
             if (result['state'] !== 0) {
@@ -19,30 +20,32 @@ function loadNote(pageInfo) {
         }
     })
 }
+
 //喜欢
 function addLike() {
     //获取当前点击事件的id
-    var id=event.target.id;
+    var id = event.target.id;
     //获取当前元素的下一个元素
     var text = document.getElementById(id).nextElementSibling;
     //获取元素的文本内容
     var oldLikeNumber = text.textContent;
-    text.textContent = parseInt(oldLikeNumber)+1;
+    text.textContent = parseInt(oldLikeNumber) + 1;
     //截取id数字部分
-    var likeId= id.substring(0,36);
+    var likeId = id.substring(0, 36);
     $.ajax({
-        type:'GET',
-        url:API['addLike'],
-        data:{
-            sid:likeId
+        type: 'GET',
+        url: API['addLike'],
+        data: {
+            sid: likeId
         },
-        success:function (data) {
+        success: function (data) {
         },
-        error:function () {
+        error: function () {
             alert("点赞失败")
         }
     })
 }
+
 //更新页面
 function addNoteToView(info) {
     var sid = info['sid'], likeId = sid + "like", moreId = sid + "more", contentId = sid + "content",

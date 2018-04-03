@@ -106,7 +106,7 @@ html, body {
 }
 
 .pagination > li > a {
-    padding: 6px 15px;
+    padding: 6px 15px !important;
 }
 
 #bookEditor {
@@ -114,6 +114,14 @@ html, body {
     margin-top: 10px;
 }
 
+#b_content {
+    word-wrap: break-word
+}
+
 #bookView > div h6 {
     margin-bottom: 2px;
+}
+
+#bookTypeList > img {
+    width: 100%;
 }

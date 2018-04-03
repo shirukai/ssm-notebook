@@ -10,15 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown-7">
             <ul class="navbar-nav mr-auto head-left">
                 <li class="nav-item">
-                    <a class="nav-link" href="/notebook/index">推荐
+                    <a class="nav-link" href="<%=request.getContextPath()%>/notebook/index">推荐
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/notebook/shortnote">便签</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/notebook/shortnote">便签</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/notebook/booknote" >笔记</a>
+                    <a class="nav-link" href="<%=request.getContextPath()%>/notebook/booknote">笔记</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink-7"
@@ -26,14 +26,19 @@
                         创作
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink-7">
-                        <a class="dropdown-item" href="/notebook/bookManager">笔记管理</a>
-                        <a class="dropdown-item" href="/notebook/noteManager">便签管理</a>
-                        <a class="dropdown-item" href="/notebook/favorite">收藏夹</a>
+                        <a class="dropdown-item"
+                           href="<%=request.getContextPath()%>/admin/notebook/bookManager">笔记管理</a>
+                        <a class="dropdown-item"
+                           href="<%=request.getContextPath()%>/admin/notebook/noteManager">便签管理</a>
+                        <a class="dropdown-item"
+                           href="<%=request.getContextPath()%>/admin/notebook/favorite">收藏夹</a>
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav head-right login-info">
-                <li id="noLogin"><a href="/notebook/login">登录</a>&nbsp&nbsp&nbsp&nbsp<a href="/notebook/register">注册</a></li>
+                <li id="noLogin"><a href="<%=request.getContextPath()%>/notebook/login">登录</a>&nbsp&nbsp&nbsp&nbsp<a
+                        href="/notebook/register">注册</a>
+                </li>
                 <li id="alLogin" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userName">

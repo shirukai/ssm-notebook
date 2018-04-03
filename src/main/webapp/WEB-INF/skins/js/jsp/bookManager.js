@@ -14,6 +14,7 @@ bookEditor.children().eq(1).height(610)
 //写笔记
 $('#writeBooks').click(function () {
     isEditBook = true;
+    $('#booksTitle').val('')
     bookEditor.children().eq(1).children().html('<h4>正文：</h4>')
     changController("bookEdit")
 });

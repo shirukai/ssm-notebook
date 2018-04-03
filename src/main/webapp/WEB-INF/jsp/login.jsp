@@ -39,7 +39,7 @@
             <input type="checkbox" value="" id="autoLogin"> 七天免登录
         </label>
         <label>
-            <a href="register"> 没有账号？</a>
+            <a href="<%=request.getContextPath()%>/notebook/register"> 没有账号？</a>
         </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" id="login">登录</button>
