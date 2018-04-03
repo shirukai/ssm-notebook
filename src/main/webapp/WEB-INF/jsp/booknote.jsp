@@ -34,7 +34,7 @@
 <script type="text/html" id="showManagerItems">
     <div  class="list_style" style="" id="[booknId]" >
         <div class="col-1 pull-left" style="width: 100%;border-radius: 50% 50%;padding: 0;">
-            <img src="http://ov1a6etyz.bkt.clouddn.com//1521854290525avatar.jpg" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
+            <img src="[avatar]" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
         </div>
         <div class="col-11 pull-right">
             <%--文章标题--%>

@@ -77,7 +77,8 @@ function addNoteToView(info) {
                 'likeId': likeId,
                 'viewId': viewId,
                 'stateId':stateId,
-                'type': info['type']
+                'type': info['type'],
+                'avatar': info['avatar']
             }[key]
         });//通过json格式的数据来匹配模板数据
 //将模板加载到html
@@ -92,9 +93,6 @@ function delHtmlTag(str){
 $(function(){
     //鼠标滚动事件
     $(window).scroll(function(){
-        console.log("滚动条到顶部的垂直高度：" +  $(window).scrollTop() );
-        console.log("页面的文档高度：" +  $(document).height() );
-        console.log("浏览器的高度：" +  $(window).height() );
 //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8
         var htmlHeight=document.body.scrollHeight||document.documentElement.scrollHeight;
         //clientHeight是网页在浏览器中的可视高度，
