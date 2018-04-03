@@ -111,7 +111,9 @@ $(function(){
 
         }
     });
-    $(".book_info").click(
-       alert("aaaaaaa")
-    );
 })
+function click_top(e) {
+    window.open("/notebook/view/"+$(e).attr("id"));
+
+    
+}
