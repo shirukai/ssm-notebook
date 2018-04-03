@@ -32,7 +32,7 @@
 <%--页面底部留白--%>
 </div>
 <script type="text/html" id="showManagerItems">
-    <div  class="list_style" style="" id="[booknId]" >
+    <div  class="list_style book_info"  id="[booknId]" >
         <div class="col-1 pull-left" style="width: 100%;border-radius: 50% 50%;padding: 0;">
             <img src="[avatar]" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
         </div>

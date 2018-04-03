@@ -83,9 +83,9 @@ $(function(){
         //scrollTop是浏览器滚动条的top位置，
         var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
         //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；
-        if(scrollTop+clientHeight==htmlHeight){
+        if(scrollTop+clientHeight+100>=htmlHeight){
             pageNum++;
-            console.log(loadNote(pageNum,pageSize));
+            // console.log(loadNote(pageNum,pageSize));
             loadNote(pageNum,pageSize);
         }
     })
