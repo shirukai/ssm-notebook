@@ -36,7 +36,7 @@
             <div class="input-group input-group-seamless">
                 <input type="text" class="form-control" id="searchInput" placeholder="请输入搜索条件">
                 <span class="input-group-append">
-                    <span class="input-group-text">
+                    <span class="input-group-text" id="searchIcon">
                         <i class="fa fa-search"></i>
                     </span>
                 </span>

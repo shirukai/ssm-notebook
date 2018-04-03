@@ -125,3 +125,11 @@ html, body {
 #bookTypeList > img {
     width: 100%;
 }
+
+#bookTableList {
+    width: 100% !important;
+}
+
+#bookTableList > th {
+    width: 100% !important;
+}

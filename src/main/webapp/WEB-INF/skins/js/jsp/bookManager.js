@@ -11,6 +11,16 @@ editor.create();
 var bookEditor = $('#bookEditor');
 bookEditor.children().eq(0).css('background-color', '#FFFFFF');
 bookEditor.children().eq(1).height(610)
+
+//搜索
+$('#searchInput').bind('keypress', function (e) {
+    if (e.keyCode === 13) {
+        handleSearch()
+    }
+})
+$('#searchIcon').click(function () {
+    handleSearch()
+})
 //写笔记
 $('#writeBooks').click(function () {
     isEditBook = true;
@@ -89,6 +99,13 @@ $('#b_delete').click(function () {
     });
     deleteBookDialog.open()
 });
+
+//搜索
+function handleSearch() {
+    var reg = $('#searchInput').val()
+    bookListTable.destroy();
+    initBookTable('bookByReg', reg);
+}
 
 //视图切换控制器
 function changController(target) {
@@ -172,7 +189,7 @@ function viewBookDetail(bid) {
                 $('#b_id').val(data['data']['bid']);
                 $('#b_time').text(getLocalTime(data['data']['createTime']));
                 $('#b_type').text(data['data']['type']).attr('title', data['data']['tid']);
-                $('#b_title').text(data['data']['bookTitle']);
+                $('#b_title').text(data['data']['bookTitle']).attr("href", "/notebook/view/" + data['data']['bid']);
                 $('#b_state').text(b_state[data['data']['isPublic']])
                 $('#b_content').html(data['data']['bookContent']);
                 changController("bookView")
@@ -352,5 +369,10 @@ window.addEventListener('scroll', handleScroll);
 function handleScroll() {
     //鼠标滚动高度
     var scrollTop = $(window).scrollTop();
-    $('#bookType')[0].style.marginTop = scrollTop + 2 + 'px';
+    //获取窗口宽度
+    var width = $(window).width();
+    if (width > 990) {
+        $('#bookType')[0].style.marginTop = scrollTop + 2 + 'px';
+    }
+
 }
