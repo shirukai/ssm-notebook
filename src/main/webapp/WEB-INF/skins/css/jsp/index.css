@@ -30,7 +30,7 @@ html, body {
     width: 200px;
 }
 
-.neckName {
+.nickName {
     font-size: 16px;
     font-weight: bold;
 }
@@ -85,7 +85,9 @@ html, body {
 }
 
 .name {
-    color: #1DA1F2
+    color: #1DA1F2;
+    font-size: 1.25rem;
+    margin-left: 10px;
 }
 
 .line {
@@ -131,4 +133,49 @@ html, body {
     height: 200px;
     background: #fff;
     margin-bottom: 10px;
+}
+
+.load-more {
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #1DA1F2;
+}
+
+.item-name {
+    background-color: #fff;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 6px;
+}
+
+.more {
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.showBookItems {
+    background-color: #fff;
+    padding: 20px 20px;
+}
+
+.book-item {
+    height: 36px;
+}
+
+.book-item > .title {
+    width: 78%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-item:hover {
+    color: #1DA1F2;
+    transform: scale(0.98, 0.98);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.book-item:active {
+    transform: scale(1.02, 1.02);
 }

@@ -10,7 +10,7 @@ public class User {
     private Integer role;
     private String avatar;
     private Integer bookNumber;
-    private Integer nodeNumber;
+    private Integer noteNumber;
     private Date createTime;
     private Date modifyTime;
 
@@ -70,12 +70,12 @@ public class User {
         this.bookNumber = bookNumber;
     }
 
-    public Integer getNodeNumber() {
-        return nodeNumber;
+    public Integer getNoteNumber() {
+        return noteNumber;
     }
 
-    public void setNodeNumber(Integer nodeNumber) {
-        this.nodeNumber = nodeNumber;
+    public void setNoteNumber(Integer noteNumber) {
+        this.noteNumber = noteNumber;
     }
 
     public Date getCreateTime() {
@@ -104,7 +104,7 @@ public class User {
                 ", role=" + role +
                 ", avatar='" + avatar + '\'' +
                 ", bookNumber=" + bookNumber +
-                ", nodeNumber=" + nodeNumber +
+                ", noteNumber=" + noteNumber +
                 ", createTime=" + createTime +
                 ", modifyTime=" + modifyTime +
                 '}';

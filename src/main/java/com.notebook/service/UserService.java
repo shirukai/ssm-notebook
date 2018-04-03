@@ -6,6 +6,10 @@ import java.util.Map;
 
 public interface UserService {
     int insertUser(User user);
+
     Map verificationName(String userName);
-    Map verification(String userName,String password,Boolean autoLogin);
+
+    Map verification(String userName, String password, Boolean autoLogin);
+
+    User queryByUid(String uid);
 }

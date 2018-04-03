@@ -14,7 +14,7 @@ var API = {
     "deleteNote": context + "/admin/note/delete",
     "updateNote": context + "/admin/note/update",
     "addLike": context + "/note/addLike",
-    "getPublicNote":context+"/note/findPublicNote",
+    "getPublicNote": context + "/note/findPublicNote",
     "getTypes": context + "/admin/book/type/all",
     "addType": context + "/admin/book/type/insert",
     "deleteType": context + "/admin/book/type/delete",
@@ -25,8 +25,9 @@ var API = {
     "saveBook": context + "/admin/book/insert",
     "updateBook": context + "/admin/book/update",
     "deleteBook": context + "/admin/book/delete",
-    "getBookList":context+"/book/findAllList",
-    "findUserTop":context+"/book/findUserRank"
+    "getBookList": context + "/book/findAllList",
+    "getUserInfo": context + "/user/getUserInfo",
+    "findUserTop": context + "/book/findUserRank"
 }
 
 //时间转换

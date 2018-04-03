@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     public int insertUser(User user) {
         return userDao.insertUser(user);
     }
@@ -55,5 +56,9 @@ public class UserServiceImpl implements UserService {
             }
         }
         return resData(state, msg);
+    }
+
+    public User queryByUid(String uid) {
+        return userDao.queryByUid(uid);
     }
 }

@@ -18,17 +18,19 @@
     </select>
     <select id="queryByUid" resultType="User">
         SELECT
+            uid,
             user_name,
             nick_name,
             avatar,
             create_time,
             modify_time,
             (SELECT COUNT(*)
-             FROM notebook.user u, notebook.short_note s
-             WHERE u.uid = s.uid) AS 'short_number',
+             FROM notebook.short_note s
+             WHERE s.uid = #{uid}) AS 'note_number',
             (SELECT COUNT(*)
-             FROM notebook.user u, notebook.book_note b
-             WHERE u.uid = b.uid) AS 'book_number'
+             FROM notebook.book_note b
+             WHERE b.uid = #{uid}) AS 'book_number'
         FROM notebook.user
+        where uid = #{uid}
     </select>
 </mapper>

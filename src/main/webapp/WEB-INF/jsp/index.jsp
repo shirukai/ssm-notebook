@@ -11,29 +11,31 @@
 <div class="container recommend">
     <div class="row">
         <div class="col-lg-3" id="row1">
-            <div class="animation-hover animation-active">
-                <div class="info-img">
+            <div class="animation-hover animation-active wrapper">
+                <div class="info-img top-radius">
                     <div class="headImg">
                         <img src="#" id="userHeadImg">
                     </div>
                 </div>
-                <div class="info-content" style="">
+                <div class="info-content">
                     <div class="nameInfo">
-                        <span class="neckName">未登录</span><br>
+                        <span class="nickName">未登录</span><br>
                         <span class="useName">用户名</span>
                     </div>
                     <div class="userInfo row">
                         <div class="notepads col-xl col-4">
                             <span class="infoTitle">便签</span><br>
-                            <span class="infoNumber" id="noteNumber">无</span>
+                            <a class="infoNumber" id="noteNumber" href="/admin/notebook/noteManager"
+                               target="_blank">无</a>
                         </div>
                         <div class="notebook col-xl col-4">
                             <span class="infoTitle">笔记</span><br>
-                            <span class="infoNumber" id="booksNumber">无</span>
+                            <a class="infoNumber" id="bookNumber" href="/admin/notebook/bookManager"
+                               target="_blank">>无</a>
                         </div>
                         <div class="notebook col-xl col-4">
                             <span class="infoTitle">收藏</span><br>
-                            <span class="infoNumber" id="favorite">无</span>
+                            <a class="infoNumber" id="favorite">无</a>
                         </div>
                     </div>
                 </div>
@@ -41,17 +43,22 @@
         </div>
         <div class="col-lg-5" id="row2">
             <div class="notes">
-                <h5 class="name">便签</h5>
-                <div class="line"></div>
+                <div class="item-name animation-hover animation-active wrapper">
+                    <span class="name">便签</span>
+                    <a class="pull-right more" href="/notebook/shortnote">更多</a>
+                </div>
                 <div class="showNoteItems">
                 </div>
             </div>
         </div>
         <div class="col-lg-4" id="row3">
             <div class="book">
-                <h5 class="name">笔记</h5>
-                <div class="line"></div>
-                <div class="showBookItems">
+                <div class="item-name animation-hover animation-active wrapper">
+                    <span class="name">笔记</span>
+                    <a class="pull-right more" href="/notebook/booknote">更多</a>
+                </div>
+                <div class="showBookItems animation-hover wrapper">
+
                 </div>
             </div>
         </div>
@@ -60,11 +67,11 @@
 
 <!--便签模板-->
 <script type="text/html" id="showNoteItem">
-    <div class="node-body animation-hover animation-active">
-        <div class="noteContent" id="【contentId】">
+    <div class="node-body animation-hover animation-active wrapper">
+        <div class="noteContent" id="[contentId]">
             [noteContent]
         </div>
-        <a class="more float-right" id="[moreId]" onclick="moreInfo()">more</a>
+        <a class="more float-right" onclick="moreInfo(this)">more</a>
         <hr>
         <div class="createInfo">
             作者：[createName]
@@ -72,16 +79,15 @@
             时间：[createTime]
             <span class="float-right">
                 <span class="addLike">
-                    <img class="heart" src="../skins/img/heart.png" title="喜欢就点个赞吧"
+                    <img class="heart" src="<%=request.getContextPath()%>/skins/img/heart.png" title="喜欢就点个赞吧"
                          onclick="addLike()"
-                         id="[noteId2]">
+                         id="[likeId]">
                     <span>[likeNumber]</span>
                 </span>人喜欢
             </span>
         </div>
     </div>
 </script>
-<!--笔记模板-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/skins/js/jsp/index.js"></script>
 </body>
 </html>

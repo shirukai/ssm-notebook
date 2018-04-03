@@ -64,6 +64,15 @@ public class UserController {
         return resData(state, msg);
     }
 
+    @RequestMapping(value = "/getUserInfo")
+    public Map getUserInfo(
+            @RequestParam(value = "uid", required = false) String uid
+    ) {
+        User user = userService.queryByUid(uid);
+        int state = user == null ? 0 : 1;
+        return resData(state, user);
+    }
+
     @RequestMapping(value = "/upload/avatar")
     public Map uploadAvatar(MultipartFile file) {
         return Qiniu.upload(file);
