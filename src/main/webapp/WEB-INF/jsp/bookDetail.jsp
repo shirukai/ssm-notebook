@@ -8,7 +8,7 @@
             margin-top: 20px;
             padding: 20px 40px 80px 40px;
             background-color: #fff;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
         }
 
         .btn-xm {
@@ -27,7 +27,8 @@
 <body>
 <div class="container wrapper">
     <div class="book" id="bookView">
-        <input type="hidden" id="b_id" value="">
+        <input type="hidden" id="u_id" value="${book.uid}">
+        <input type="hidden" id="b_id" value="${book.bid}">
         <div class="pull-right">
             <h6><span class="fa fa-clock-o"></span>&nbsp;&nbsp;创建时间： <fmt:formatDate value="${book.modifyTime}"
                                                                                      pattern="yyyy年MM月dd日 HH时mm分ss秒"/><span
@@ -52,5 +53,6 @@
         </div>
     </div>
 </div>
+<%@include file="comment.jsp" %>
 </body>
 </html>

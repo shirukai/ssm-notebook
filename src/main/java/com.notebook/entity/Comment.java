@@ -4,12 +4,16 @@ import java.util.Date;
 
 public class Comment {
     private String cid;
-    private String uid;
+    private String senderUid;
+    private String senderName;
+    private String senderAvatar;
+    private String answerUid;
+    private String answerName;
+    private String answerAvatar;
     private String bid;
     private String nickName;
     private String content;
     private Integer isPublic;
-    private Integer viewName;
     private Integer likeName;
     private Date createTime;
     private Date modifyTime;
@@ -22,12 +26,52 @@ public class Comment {
         this.cid = cid;
     }
 
-    public String getUid() {
-        return uid;
+    public String getSenderAvatar() {
+        return senderAvatar;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setSenderAvatar(String senderAvatar) {
+        this.senderAvatar = senderAvatar;
+    }
+
+    public String getAnswerAvatar() {
+        return answerAvatar;
+    }
+
+    public void setAnswerAvatar(String answerAvatar) {
+        this.answerAvatar = answerAvatar;
+    }
+
+    public String getSenderUid() {
+        return senderUid;
+    }
+
+    public void setSenderUid(String senderUid) {
+        this.senderUid = senderUid;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
+
+    public String getAnswerUid() {
+        return answerUid;
+    }
+
+    public void setAnswerUid(String answerUid) {
+        this.answerUid = answerUid;
+    }
+
+    public String getAnswerName() {
+        return answerName;
+    }
+
+    public void setAnswerName(String answerName) {
+        this.answerName = answerName;
     }
 
     public String getBid() {
@@ -62,14 +106,6 @@ public class Comment {
         this.isPublic = isPublic;
     }
 
-    public Integer getViewName() {
-        return viewName;
-    }
-
-    public void setViewName(Integer viewName) {
-        this.viewName = viewName;
-    }
-
     public Integer getLikeName() {
         return likeName;
     }
@@ -98,12 +134,14 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "cid='" + cid + '\'' +
-                ", uid='" + uid + '\'' +
+                ", senderUid='" + senderUid + '\'' +
+                ", senderName='" + senderName + '\'' +
+                ", answerUid='" + answerUid + '\'' +
+                ", answerName='" + answerName + '\'' +
                 ", bid='" + bid + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", content='" + content + '\'' +
                 ", isPublic=" + isPublic +
-                ", viewName=" + viewName +
                 ", likeName=" + likeName +
                 ", createTime=" + createTime +
                 ", modifyTime=" + modifyTime +

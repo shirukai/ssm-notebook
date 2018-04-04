@@ -27,7 +27,12 @@ var API = {
     "deleteBook": context + "/admin/book/delete",
     "getBookList": context + "/book/findAllList",
     "getUserInfo": context + "/user/getUserInfo",
-    "findUserTop": context + "/book/findUserRank"
+    "findUserTop": context + "/book/findUserRank",
+    "insertComment": context + "/comment/insert",
+    "getCommentByBid": context + "/comment/getComment",
+    "deleteCommentBySender": context + "/comment/deleteCommentBySender",
+    "deleteCommentByAnswer": context + "/comment/deleteCommentByAnswer"
+
 }
 
 //时间转换

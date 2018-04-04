@@ -54,10 +54,10 @@ CREATE TABLE IF NOT EXISTS `type`(
 -- 创建评论表
 CREATE TABLE IF NOT EXISTS `comment`(
   `cid` VARCHAR(64) PRIMARY KEY COMMENT '评论id',
-  `uid` VARCHAR(64) COMMENT '用户id',
+  `sender_uid` VARCHAR(64) COMMENT '发送用户id',
+  `answer_uid` VARCHAR(64) COMMENT '接受用户id',
   `bid` VARCHAR(64) COMMENT'笔记id',
   `content` TEXT COMMENT '评论内容',
-  `view_number` INT(10) DEFAULT 0 COMMENT '浏览量',
   `like_number` INT(10) DEFAULT 0 COMMENT '喜欢数',
   `is_public` INT(1) DEFAULT 1 COMMENT '是否公开 1：为公开 0 ：为不公开（仅彼此可见）',
   `create_time` DATETIME DEFAULT NOW() COMMENT '创建日期',

@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
             if (user.getUserPwd().equals(password)) {
                 JSONObject jo = new JSONObject();
                 try {
-                    jo.put("userName", user.getUserName()).put("nickName", user.getNickName()).put("uid", user.getUid());
+                    jo.put("userName", user.getUserName()).put("nickName", user.getNickName()).put("uid", user.getUid()).put("avatar", user.getAvatar());
                     msg = jo.toString();
                 } catch (Exception e) {
                     e.getMessage();
