@@ -33,17 +33,19 @@
     <%--页面底部留白--%>
 </div>
 <script type="text/html" id="showManagerItems">
-    <div class="list_style book_info wrapper animation-hover animation-active" id="[booknId]" onclick="click_top(this)">
+    <div class="list_style book_info wrapper animation-hover animation-active" id="book_info" >
         <div class="col-1 pull-left" style="width: 100%;border-radius: 50% 50%;padding: 0;">
             <img src="[avatar]" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
         </div>
         <div class="col-11 pull-right">
-            <%--文章标题--%>
-            <h6> [bookTitle]</h6>
-            <%--文章内容--%>
-            <p class="managerlead">
-                [bookContent]
-            </p>
+            <div  id="[booknId]" onclick="click_top(this)">
+                <%--文章标题--%>
+                <h6> [bookTitle]</h6>
+                <%--文章内容--%>
+                <p class="managerlead">
+                    [bookContent]
+                </p>
+            </div>
             <hr style="height: 1px;margin: 8px 1px 8px 1px ">
             <div class="createInfo">
                 <%--作者--%>
