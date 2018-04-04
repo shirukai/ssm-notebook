@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notebook.dao.CommentDao">
+    <insert id="insertComment" parameterType="Comment">
+        INSERT INTO notebook.comment(cid, sender_uid, answer_uid, bid, content) VALUES
+        (#{cid},#{senderUid},#{answerUid},#{bid},#{content});
+        <selectKey keyProperty="cid" resultType="java.lang.String"
+                   order="BEFORE">
+            select uuid() from dual
+        </selectKey>
+    </insert>
+    <select id="getCommentByBid" resultType="Comment">
+        SELECT
+            c.cid,
+            c.sender_uid,
+            s.user_name as 'sender_name',
+            s.avatar    as 'sender_avatar',
+            a.user_name as 'answer_name',
+            a.avatar    as 'answer_avatar',
+            c.answer_uid,
+            c.bid,
+            c.content,
+            c.create_time,
+            c.modify_time,
+            c.like_number
+        FROM
+            (SELECT *
+             FROM notebook.comment
+             WHERE bid = #{}) as c,
+            notebook.user s,
+            notebook.user a
+        WHERE
+            s.uid = c.sender_uid
+            AND a.uid = c.answer_uid
+        ORDER BY create_time DESC;
+    </select>
+    <delete id="deleteCommentBySender">
+        DELETE FROM notebook.comment
+        WHERE sender_uid = #{sender_uid}
+    </delete>
+    <delete id="deleteCommentByAnswer">
+        DELETE FROM notebook.comment
+        WHERE answer_uid = #{answer_uid}
+    </delete>
+</mapper>
+
