@@ -34,34 +34,37 @@
 </div>
 <script type="text/html" id="showManagerItems">
     <div class=" list_style book_info wrapper animation-hover animation-active" id="book_info" >
-        <div class="col-sm-1">
-            <img src="[avatar]" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
-        </div>
-        <div class="col-11">
-            <div  id="[booknId]" onclick="click_top(this)">
-                <%--文章标题--%>
-                <h6> [bookTitle]</h6>
-                <%--文章内容--%>
-                <p class="managerlead">
-                    [bookContent]
-                </p>
+        <div class="row">
+            <div class="col-1 img_head">
+                <img src="[avatar]" style="width: 50px;height: 50px;border-radius: 50% 50%;"/>
             </div>
-            <hr style="height: 1px;margin: 8px 1px 8px 1px ">
-            <div class="createInfo" >
-                <div class="row" style="padding-bottom: 3px;">
-                    <%--作者--%>
-                    <span class="fa fa-user-o col-8"> [nickName]</span>
-                    <%--转发量[浏览量]--%>
-                    <span class="fa fa-refresh col-4" id="[viewId]"> [viewNumber]</span>
+            <div class="col-11">
+                <div  id="[booknId]" onclick="click_top(this)">
+                    <%--文章标题--%>
+                    <h6> [bookTitle]</h6>
+                    <%--文章内容--%>
+                    <p class="managerlead">
+                        [bookContent]
+                    </p>
                 </div>
-                <div class="row" style="padding-bottom: 3px;">
-                    <%--修改时间--%>
-                    <span class="fa fa-calendar col-8"> [modifyTime]</span>
-                    <%--评论量[喜欢量]--%>
-                    <span class="fa fa-comment-o col-4" id="[likeId]"> [likeNumber]</span>
+                <hr style="height: 1px;margin: 8px 1px 8px 1px ">
+                <div class="createInfo" >
+                    <div class="row" style="padding-bottom: 3px;">
+                        <%--作者--%>
+                        <span class="fa fa-user-o col-8"> [nickName]</span>
+                        <%--转发量[浏览量]--%>
+                        <span class="fa fa-refresh col-4" id="[viewId]"> [viewNumber]</span>
+                    </div>
+                    <div class="row" style="padding-bottom: 3px;">
+                        <%--修改时间--%>
+                        <span class="fa fa-calendar col-8"> [modifyTime]</span>
+                        <%--评论量[喜欢量]--%>
+                        <span class="fa fa-comment-o col-4" id="[likeId]"> [likeNumber]</span>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </script>
 <script type="text/html" id="user_top">
