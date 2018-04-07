@@ -1,0 +1,76 @@
+.comment {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.center-vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.list-content {
+    margin-top: 10px;
+}
+
+.commenter > .time {
+    font-size: 0.8rem;
+}
+
+.comments {
+    margin-bottom: 40px;
+}
+
+.commenter {
+    padding-bottom: 10px;
+    border-bottom: solid 1px #efefef
+}
+
+.commenter > .option {
+    margin-bottom: 8px;
+}
+
+.option-btn {
+    opacity: 0;
+    transition: 0.3s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+}
+
+.option:hover .option-btn {
+    opacity: 1;
+}
+
+.reply-list {
+    font-size: 0.9rem;
+}
+
+.reply-sender, .reply-answer, .commenter > .name {
+    color: #1DA1F2;
+}
+
+.reply-list {
+    margin-top: 8px;
+}
+
+.reply-item {
+
+}
+
+.reply-content {
+    color: #212529;
+}
+
+.hide {
+    display: none;
+}

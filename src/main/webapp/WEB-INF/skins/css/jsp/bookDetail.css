@@ -1,0 +1,20 @@
+.container {
+    margin-top: 20px;
+    padding: 20px 40px 80px 40px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.btn-xm {
+    padding: .2rem 1rem;
+    font-size: .4rem;
+    line-height: 1.4;
+    border-radius: .35rem;
+}
+
+#bookView > div h6 {
+    margin-bottom: 2px;
+}
+.book-detail{
+    margin-bottom: 10px;
+}
