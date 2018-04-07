@@ -10,7 +10,7 @@
         <div class="comment-body">
             <div class="comment-publish row">
                 <div class="col-lg-1">
-                    <img class="avatar" src="http://ov1a6etyz.bkt.clouddn.com/201804032209_631.jpg">
+                    <img class="avatar" id="userAvatar" src="http://ov1a6etyz.bkt.clouddn.com/201804032209_631.jpg">
                 </div>
                 <div class="col-lg-9 comment-input">
                     <textarea class="form-control center-vertical"></textarea>

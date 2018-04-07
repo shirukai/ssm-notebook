@@ -1,7 +1,7 @@
 var b_id = $('#b_id').val(), isLogin = false;
 //获取登录信息
 if (userInfo) {
-    $('.comment-publish>.col-1>img').attr('src', userInfo['avatar']);
+    $('#userAvatar').attr('src', userInfo['avatar']);
     isLogin = true;
 }
 getAllComment()
