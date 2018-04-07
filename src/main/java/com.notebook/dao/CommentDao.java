@@ -13,4 +13,8 @@ public interface CommentDao {
 
     int deleteCommentByAnswer(String answerId);
 
+    int deleteCommentByCid(String cid);
+
+    int addLikeNumber(String cid);
+
 }

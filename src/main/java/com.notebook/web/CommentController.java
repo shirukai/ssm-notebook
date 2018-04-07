@@ -1,6 +1,7 @@
 package com.notebook.web;
 
 import com.notebook.entity.Comment;
+import com.notebook.entity.Interactive;
 import com.notebook.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,5 +44,27 @@ public class CommentController {
             @RequestParam(value = "answerId", required = false) String answerId
     ) {
         return resData(commentService.deleteCommentByAnswer(answerId));
+    }
+
+    @RequestMapping(value = "/deleteByCid")
+    public Map deleteByCid(
+            @RequestParam(value = "cid", required = false) String cid
+    ) {
+        return resData(commentService.deleteCommentByCid(cid));
+    }
+
+    @RequestMapping(value = "/addLikeNumber")
+    public Map addLikeNumber(
+            @RequestParam(value = "cid", required = false) String cid
+    ) {
+        return resData(commentService.addLikeNumber(cid));
+    }
+
+
+    @RequestMapping(value = "/insertInteractive")
+    public Map insertInteractive(
+            Interactive interactive
+    ) {
+        return resData(commentService.insertInteractive(interactive));
     }
 }

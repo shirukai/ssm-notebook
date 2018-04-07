@@ -48,7 +48,7 @@ public class UserController {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", user.getUserName())
                         .put("uid", user.getUid())
-                        .put("nickName", user.getNickName());
+                        .put("nickName", user.getNickName()).put("avatar", user.getAvatar());
                 String userInfo = jsonObject.toString();
                 Cookie cookieUserInfo = new Cookie("userInfo", URLEncoder.encode(userInfo, "UTF-8"));
                 cookieUserInfo.setPath("/");
@@ -111,4 +111,12 @@ public class UserController {
         return result;
     }
 
+    @RequestMapping(value = "updateUserInfo")
+    public Map updateUserInfo(
+            User user,
+            @RequestParam("oldUserPwd") String oldUserPwd
+    ) {
+        Map map = userService.updateUser(user, oldUserPwd);
+        return resData((Integer) map.get("state"), map.get("msg"));
+    }
 }

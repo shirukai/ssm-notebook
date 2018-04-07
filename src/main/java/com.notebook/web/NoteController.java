@@ -14,7 +14,7 @@ import static com.notebook.dto.ResData.resData;
 
 @RestController
 @RequestMapping(value = "/note")
-public class NodeController {
+public class NoteController {
     @Autowired
     NoteService noteService;
 

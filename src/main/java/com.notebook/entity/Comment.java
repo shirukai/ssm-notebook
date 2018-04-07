@@ -1,6 +1,8 @@
 package com.notebook.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 public class Comment {
     private String cid;
@@ -11,12 +13,21 @@ public class Comment {
     private String answerName;
     private String answerAvatar;
     private String bid;
-    private String nickName;
     private String content;
     private Integer isPublic;
-    private Integer likeName;
+    private Integer likeNumber;
     private Date createTime;
     private Date modifyTime;
+    private List<Interactive> interactives;
+
+    public List<Interactive> getInteractives() {
+        return interactives;
+    }
+
+    public void setInteractives(List<Interactive> interactives) {
+        this.interactives = interactives;
+    }
+
 
     public String getCid() {
         return cid;
@@ -82,14 +93,6 @@ public class Comment {
         this.bid = bid;
     }
 
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
     public String getContent() {
         return content;
     }
@@ -106,12 +109,12 @@ public class Comment {
         this.isPublic = isPublic;
     }
 
-    public Integer getLikeName() {
-        return likeName;
+    public Integer getLikeNumber() {
+        return likeNumber;
     }
 
-    public void setLikeName(Integer likeName) {
-        this.likeName = likeName;
+    public void setLikeNumber(Integer likeName) {
+        this.likeNumber = likeName;
     }
 
     public Date getCreateTime() {
@@ -136,15 +139,17 @@ public class Comment {
                 "cid='" + cid + '\'' +
                 ", senderUid='" + senderUid + '\'' +
                 ", senderName='" + senderName + '\'' +
+                ", senderAvatar='" + senderAvatar + '\'' +
                 ", answerUid='" + answerUid + '\'' +
                 ", answerName='" + answerName + '\'' +
+                ", answerAvatar='" + answerAvatar + '\'' +
                 ", bid='" + bid + '\'' +
-                ", nickName='" + nickName + '\'' +
                 ", content='" + content + '\'' +
                 ", isPublic=" + isPublic +
-                ", likeName=" + likeName +
+                ", likeNumber=" + likeNumber +
                 ", createTime=" + createTime +
                 ", modifyTime=" + modifyTime +
+                ", interactives=" + interactives +
                 '}';
     }
 }

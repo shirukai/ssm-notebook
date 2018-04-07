@@ -5,7 +5,7 @@
 <mapper namespace="com.notebook.dao.TypeDao">
     <insert id="insertType" parameterType="Type">
         INSERT INTO notebook.type(tid, uid,type) VALUES
-        (#{tid},#{uid},#{type})
+        (#{tid},#{uid},#{type});
         <selectKey keyProperty="tid" resultType="java.lang.String"
                    order="BEFORE">
             select uuid() from dual

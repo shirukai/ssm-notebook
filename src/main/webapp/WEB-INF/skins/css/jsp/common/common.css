@@ -39,3 +39,30 @@ pre {
 .animation-active:active {
     transform: scale(1.02, 1.02);
 }
+
+.ah:hover {
+    transform: scale(1.2, 1.2);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.4s;
+}
+
+.aa:active {
+    transform: scale(2.0, 2.0);
+}
+
+/*alert*/
+.alert {
+    top: 6px;
+    left: 0;
+    right: 0;
+    width: 30%;
+    margin: auto;
+    position: fixed;
+    display: none;
+    z-index: 100000000000;
+}
+
+.alert > .close {
+    margin-top: 10px;
+    padding-right: 30px;
+}

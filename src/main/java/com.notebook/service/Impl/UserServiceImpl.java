@@ -20,6 +20,40 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Override
+    public Map updateUser(User user, String oldPwd) {
+        Map<String, Object> map = new HashMap<>();
+        String msg = "更新成功！";
+        int state = 1;
+        //判断是否跟新密码
+        if (oldPwd == null || oldPwd.equals("undefined") || oldPwd.equals("")) {
+            //更新其他信息的操作
+            int res = userDao.updateUserNoPwd(user);
+            if (res == 0) {
+                msg = "更新失败";
+                state = 0;
+            }
+        } else {
+            msg = "更新密码失败，请认真核对新旧密码";
+            state = 0;
+            User oldUser = userDao.verification(user.getUserName());
+            if (oldUser.getUserPwd().equals(oldPwd) && user.getUserPwd() != null) {
+                int res = userDao.updateUserNoPwd(user);
+                if (res == 1) {
+                    //执行更新密码的操作
+                    res = userDao.updatePwd(user.getUid(), user.getUserPwd());
+                }
+                if (res == 1) {
+                    state = 1;
+                    msg = "更新成功！";
+                }
+            }
+        }
+        map.put("state", state);
+        map.put("msg", msg);
+        return map;
+    }
+
     public int insertUser(User user) {
         return userDao.insertUser(user);
     }

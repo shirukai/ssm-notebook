@@ -31,7 +31,11 @@ var API = {
     "insertComment": context + "/comment/insert",
     "getCommentByBid": context + "/comment/getComment",
     "deleteCommentBySender": context + "/comment/deleteCommentBySender",
-    "deleteCommentByAnswer": context + "/comment/deleteCommentByAnswer"
+    "deleteCommentByAnswer": context + "/comment/deleteCommentByAnswer",
+    "insertInteractive": context + "/comment/insertInteractive",
+    "deleteByCid": context + "/comment/deleteByCid",
+    'commentLike': context + "/comment/addLikeNumber",
+    "updateUserInfo": context + "/user/updateUserInfo"
 
 }
 
@@ -44,13 +48,39 @@ function Dialog(args) {
     var time = new Date().getTime(), modal_id = 'modal-' + time, modal_label = 'label' + time,
         okId = 'okBtn-' + time, noId = 'noBtn-' + time;
     //btn class
-    var titleText = isEmpty(args['title']['text']) ? '提示' : args['title']['text'];
-    var titleClass = isEmpty(args['title']['text']) ? '' : args['title']['class'];
+    var titleText = '提示';
+    var titleClass = '';
+    var okBtnClass = 'btn-primary';
+    var noBtnClass = 'btn-light';
+    var okBtnText = '确定';
+    var noBtnText = '取消';
+    try {
+        titleText = args['title']['text'];
+    } catch (e) {
+    }
+    try {
+        titleClass = args['title']['class'];
+    } catch (e) {
+    }
+
+
+    try {
+        okBtnClass = args['okBtn']['class'];
+    } catch (e) {
+    }
+    try {
+        noBtnClass = args['noBtn']['class'];
+    } catch (e) {
+    }
+    try {
+        okBtnText = args['okBtn']['text'];
+    } catch (e) {
+    }
+    try {
+        noBtnText = args['noBtn']['text'];
+    } catch (e) {
+    }
     var modalBody = args['body'];
-    var okBtnClass = isEmpty(args['okBtn']['class']) ? 'btn-primary' : args['okBtn']['class'];
-    var noBtnClass = isEmpty(args['noBtn']['class']) ? 'btn-light' : args['noBtn']['class'];
-    var okBtnText = isEmpty(args['okBtn']['text']) ? '确定' : args['okBtn']['text'];
-    var noBtnText = isEmpty(args['noBtn']['text']) ? '取消' : args['noBtn']['text'];
     var template = '<div class="modal fade" id="' + modal_id + '" tabindex="-1" role="dialog" aria-labelledby="' + modal_label + '" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title ' + titleClass + '" id="' + modal_label + '">' + titleText + '</h5><button type="button" class="close ' + titleClass + '" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">' + modalBody + '</div><div class="modal-footer"><button type="button" class="btn ' + noBtnClass + '" id="' + noId + '">' + noBtnText + '</button><button type="button" class="btn ' + okBtnClass + '" id="' + okId + '">' + okBtnText + '</button></div></div></div></div>'
     $('body').append(template);
     var m = $('#' + modal_id);
@@ -78,5 +108,21 @@ function isEmpty(object) {
     return object === null || object === undefined || object === ''
 }
 
+
+function Alert(args) {
+    var id = "alert-" + new Date().getTime()
+    var type = args['type'] ? args['type'] : 'alert-success', content = args['body'] ? args['body'] : 'success',
+        time = args['time'] ? args['time'] : 2000
+    var html = '<div id="' + id + '" class="alert ' + type + ' alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><div class="content">' + content + '</div></div>'
+    $('body').append(html);
+    var a = $('#' + id)
+    a.fadeIn(200, function () {
+        setTimeout(function () {
+            a.fadeOut(600, function () {
+                a.remove()
+            })
+        }, time)
+    })
+}
 
 

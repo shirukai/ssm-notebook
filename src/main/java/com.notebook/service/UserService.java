@@ -11,5 +11,7 @@ public interface UserService {
 
     Map verification(String userName, String password, Boolean autoLogin);
 
+    Map updateUser(User user, String oldPwd);
+
     User queryByUid(String uid);
 }

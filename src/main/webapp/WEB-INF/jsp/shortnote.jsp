@@ -4,7 +4,6 @@
     <%@include file="common/head.jsp" %>
     <title>便签</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/normalize.css">
-    <%--<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/default.css">--%>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/jsp/shortnote.css">
     <style type="text/css">
 

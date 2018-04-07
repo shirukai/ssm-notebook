@@ -44,17 +44,17 @@ public class BookController {
             @RequestParam(value = "start", required = false, defaultValue = "0") int offset,
             @RequestParam(value = "length", required = false, defaultValue = "10") int limit
     ) {
-        List types = new ArrayList();
-        types = bookService.getPublicBook(offset, limit);
-        return dataTableVO(types);
-    }
-    @RequestMapping(value = "findUserRank")
-    public Map findUserRank (){
-        List types=bookService.findUserRank();
+        List types = bookService.getPublicBook(offset, limit);
         return dataTableVO(types);
     }
 
-    private static Map dataTableVO(List list){
+    @RequestMapping(value = "findUserRank")
+    public Map findUserRank() {
+        List types = bookService.findUserRank();
+        return dataTableVO(types);
+    }
+
+    private static Map dataTableVO(List list) {
         Map<String, Object> map = new HashMap<String, Object>();
         //获取数据总量
         int dataTotal = list.size();

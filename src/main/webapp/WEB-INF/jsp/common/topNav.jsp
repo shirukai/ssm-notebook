@@ -30,8 +30,8 @@
                            href="<%=request.getContextPath()%>/admin/notebook/bookManager">笔记管理</a>
                         <a class="dropdown-item"
                            href="<%=request.getContextPath()%>/admin/notebook/noteManager">便签管理</a>
-                        <a class="dropdown-item"
-                           href="<%=request.getContextPath()%>/admin/notebook/favorite">收藏夹</a>
+                        <%--<a class="dropdown-item"--%>
+                           <%--href="<%=request.getContextPath()%>/admin/notebook/favorite">收藏夹</a>--%>
                     </div>
                 </li>
             </ul>
@@ -44,7 +44,7 @@
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userName">
                     </a>
                     <div class="dropdown-menu my-info">
-                        <a class="dropdown-item" href="#">我的资料</a>
+                        <a class="dropdown-item" href="<%=request.getContextPath()%>/notebook/myInfo">我的资料</a>
                         <a class="dropdown-item" href="#" id="out">退出登录</a>
                     </div>
                 </li>

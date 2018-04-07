@@ -3,38 +3,19 @@
 <head>
     <%@include file="common/head.jsp" %>
     <title>${book.bookTitle}</title>
-    <style>
-        .container {
-            margin-top: 20px;
-            padding: 20px 40px 80px 40px;
-            background-color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .btn-xm {
-            padding: .2rem 1rem;
-            font-size: .4rem;
-            line-height: 1.4;
-            border-radius: .35rem;
-        }
-
-        #bookView > div h6 {
-            margin-bottom: 2px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/skins/css/jsp/bookDetail.css">
 </head>
 <body>
-<div class="container wrapper">
+<div class="container wrapper book-detail">
     <div class="book" id="bookView">
         <input type="hidden" id="u_id" value="${book.uid}">
         <input type="hidden" id="b_id" value="${book.bid}">
         <div class="pull-right">
-            <h6><span class="fa fa-clock-o"></span>&nbsp;&nbsp;创建时间： <fmt:formatDate value="${book.modifyTime}"
-                                                                                     pattern="yyyy年MM月dd日 HH时mm分ss秒"/><span
+            <h6><i class="fa fa-clock-o"></i>&nbsp;&nbsp;创建时间： <fmt:formatDate value="${book.modifyTime}"
+                                                                               pattern="yyyy年MM月dd日 HH时mm分ss秒"/><span
                     id="b_time"></span></h6>
-            <h6><span class="fa fa-th-large"></span>&nbsp;&nbsp;分类：<a id="b_type">${book.type}</a></h6>
-            <h6><span class="fa fa-eye"></span>&nbsp;&nbsp;状态：<a id="b_state">${book.isPublic==1?"公开":"不公开"}</a></h6>
+            <h6><i class="fa fa-th-large"></i>&nbsp;&nbsp;分类：<a id="b_type">${book.type}</a></h6>
+            <h6><i class="fa fa-eye"></i>&nbsp;&nbsp;状态：<a id="b_state">${book.isPublic==1?"公开":"不公开"}</a></h6>
         </div>
         <br>
         <div style="margin-top:58px">
@@ -49,7 +30,7 @@
         </div>
         <hr>
         <div class="pull-right">
-            <h6><span class="fa fa-pencil"></span><span id="createUser">本笔记由notebook发布</span></h6>
+            <h6><i class="fa fa-pencil"></i><span id="createUser">本笔记由notebook发布</span></h6>
         </div>
     </div>
 </div>

@@ -33,4 +33,14 @@
         FROM notebook.user
         where uid = #{uid}
     </select>
+    <update id="updateUserNoPwd">
+        UPDATE notebook.user
+        SET nick_name = #{nickName}, avatar = #{avatar}
+        WHERE uid = #{uid}
+    </update>
+    <update id="updatePwd">
+        UPDATE notebook.user
+        SET user_pwd = #{newPwd}
+        WHERE uid = #{uid}
+    </update>
 </mapper>

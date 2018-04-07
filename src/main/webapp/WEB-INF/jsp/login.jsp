@@ -7,12 +7,7 @@
 </head>
 <body>
 <form class="form-login text-center" onsubmit="return false">
-    <div class="alert alert-danger alert-dismissible fade" role="alert">
-        <strong>登录失败</strong> 用户名或密码错误
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+
     <h2 class="logo-text">NOTEBOOK</h2>
     <h6>用心记录点滴生活</h6>
     <br>

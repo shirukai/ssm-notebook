@@ -29,13 +29,13 @@ $("#editorSave").click(function () {
         type: 'POST',
         data: data,
         success: function (result) {
-            console.log(result);
             if (result['state'] === 1) {
                 data['nickName'] = userInfo['nickName'];
                 data['sid'] = result['data'];
                 data['createTime'] = createTime;
                 data['likeNumber'] = 0
                 addNoteToView(data)
+                $(".add,#editorCancel").click()
             } else {
 
             }
@@ -50,16 +50,15 @@ function loadNote(pageInfo) {
         type: 'POST',
         data: pageInfo,
         success: function (result) {
-            console.log(result);
             if (result['state'] !== 0) {
                 $.each(result['data'], function (index, info) {
                     info['createTime'] = getLocalTime(info['modifyTime']);
                     info['nickName'] = userInfo['nickName'];
-                    addNoteToView(info)
+                    addNoteToView(info);
                 })
             } else {
-
             }
+            $(".add,#editorCancel").click()
         }
     })
 }
@@ -91,8 +90,8 @@ function deleteNote() {
 function moreInfo(e) {
     var id = $(e).siblings('.myClose').attr('id')
     var html = $(e).siblings('.noteContent').html()
-    var state = $('#'+id+'state').text()
-    $('#modifyPublic')[0].checked = state==="状态：公开"
+    var state = $('#' + id + 'state').text()
+    $('#modifyPublic')[0].checked = state === "状态：公开"
     var md = $('#showNoteDetail')
     md.find('.modal-body').html(html)
     var modifyEditor = new E('#modifyEdit')
@@ -127,47 +126,49 @@ function moreInfo(e) {
             sid: id
         }
         $.ajax({
-                url: API['updateNote'],
-                type: 'POST',
-                data: data,
-                success: function (result) {
-                    console.log(result);
-                    if (result['state'] === 1) {
-                        var stateText = isPublic?"状态：公开":"状态：不公开" ;
-                        $(e).siblings('.noteContent').html(noteContent)
-                        $('#'+id+'state').text(stateText)
-                        md.modal('hide')
-                    } else {
+            url: API['updateNote'],
+            type: 'POST',
+            data: data,
+            success: function (result) {
+                console.log(result);
+                if (result['state'] === 1) {
+                    var stateText = isPublic ? "状态：公开" : "状态：不公开";
+                    $(e).siblings('.noteContent').html(noteContent)
+                    $('#' + id + 'state').text(stateText)
+                    md.modal('hide')
+                } else {
 
-                    }
                 }
-            })
+            }
+        })
     })
 }
+
 //喜欢
 function addLike() {
     //获取当前点击事件的id
-    var id=event.target.id;
+    var id = event.target.id;
     //获取当前元素的下一个元素
     var text = document.getElementById(id).nextElementSibling;
     //获取元素的文本内容
     var oldLikeNumber = text.textContent;
-    text.textContent = parseInt(oldLikeNumber)+1;
+    text.textContent = parseInt(oldLikeNumber) + 1;
     //截取id数字部分
-    var likeId= id.substring(0,36);
+    var likeId = id.substring(0, 36);
     $.ajax({
-        type:'GET',
-        url:API['addLike'],
-        data:{
-            sid:likeId
+        type: 'GET',
+        url: API['addLike'],
+        data: {
+            sid: likeId
         },
-        success:function (data) {
+        success: function (data) {
         },
-        error:function () {
+        error: function () {
             alert("点赞失败")
         }
     })
 }
+
 //更新页面
 function addNoteToView(info) {
     var sid = info['sid'], likeId = sid + "like", moreId = sid + "more", contentId = sid + "content",

@@ -39,7 +39,12 @@ public class IndexController {
     }
 
     @RequestMapping("/notebook/{jspName}")
-    public String jspPage(@PathVariable("jspName") String jspName) {
+    public String jspPage(Model model, @PathVariable("jspName") String jspName) {
+        model.addAttribute("myInfo", false);
+        if (jspName.equals("myInfo")) {
+            model.addAttribute("myInfo", true);
+            return "index";
+        }
         return jspName;
     }
 }

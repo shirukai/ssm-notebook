@@ -13,6 +13,7 @@ $('#login').click(function () {
                 } else {
                     $('.alert').addClass('show');
                     setTimeout(function (args) { $('.alert').removeClass('show') }, 2000)
+                    Alert({type:'alert-danger',body:'用户名或密码错误'})
                 }
             }
         })

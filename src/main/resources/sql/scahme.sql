@@ -63,4 +63,16 @@ CREATE TABLE IF NOT EXISTS `comment`(
   `create_time` DATETIME DEFAULT NOW() COMMENT '创建日期',
   `modify_time` TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '修改时间',
   FOREIGN KEY (`bid`) REFERENCES `book_note`(`bid`)
-) ENGINE =InnoDB DEFAULT CHARSET=utf8 COMMENT='便签表';
+) ENGINE =InnoDB DEFAULT CHARSET=utf8 COMMENT='评论';
+
+-- 创建评论互动表
+CREATE TABLE IF NOT EXISTS `interactive`(
+  `iid` VARCHAR(64) PRIMARY KEY COMMENT '互动id',
+  `sender_uid` VARCHAR(64) COMMENT '发送用户id',
+  `answer_uid` VARCHAR(64) COMMENT '接受用户id',
+  `cid` VARCHAR(64) COMMENT'评论id',
+  `content` TEXT COMMENT '评论内容',
+  `create_time` DATETIME DEFAULT NOW() COMMENT '创建日期',
+  `modify_time` TIMESTAMP NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp COMMENT '修改时间',
+  FOREIGN KEY (`cid`) REFERENCES `comment`(`cid`)
+) ENGINE =InnoDB DEFAULT CHARSET=utf8 COMMENT='互动表';

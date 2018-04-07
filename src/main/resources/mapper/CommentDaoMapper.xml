@@ -3,6 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notebook.dao.CommentDao">
+    <resultMap id="commentMap" type="com.notebook.entity.Comment">
+        <id property="cid" column="cid"/>
+        <result property="senderUid" column="sender_uid"/>
+        <result property="senderName" column="sender_name"/>
+        <result property="senderAvatar" column="sender_avatar"/>
+        <result property="answerName" column="sender_name"/>
+        <result property="answerUid" column="answer_uid"/>
+        <result property="answerAvatar" column="answer_avatar"/>
+        <result property="bid" column="bid"/>
+        <result property="content" column="content"/>
+        <result property="likeNumber" column="like_number"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifyTime" column="modify_time"/>
+        <collection property="interactives" column="cid" ofType="com.notebook.entity.Interactive">
+            <id property="iid" column="iid"/>
+            <result property="senderUid" column="i_sender_id"/>
+            <result property="senderName" column="i_sender_name"/>
+            <result property="answerUid" column="i_answer_uid"/>
+            <result property="answerName" column="i_answer_name"/>
+            <result property="cid" column="i_cid"/>
+            <result property="content" column="i_content"/>
+            <result property="createTime" column="i_create_time"/>
+            <result property="modifyTime" column="i_modify_time"/>
+        </collection>
+    </resultMap>
     <insert id="insertComment" parameterType="Comment">
         INSERT INTO notebook.comment(cid, sender_uid, answer_uid, bid, content) VALUES
         (#{cid},#{senderUid},#{answerUid},#{bid},#{content});
@@ -11,24 +36,39 @@
             select uuid() from dual
         </selectKey>
     </insert>
-    <select id="getCommentByBid" resultType="Comment">
+    <select id="getCommentByBid" resultMap="commentMap">
         SELECT
-            c.cid,
-            c.sender_uid,
-            s.user_name as 'sender_name',
+            s.nick_name as 'sender_name',
             s.avatar    as 'sender_avatar',
-            a.user_name as 'answer_name',
+            a.nick_name as 'answer_name',
             a.avatar    as 'answer_avatar',
-            c.answer_uid,
-            c.bid,
-            c.content,
-            c.create_time,
-            c.modify_time,
-            c.like_number
+            c.*
         FROM
-            (SELECT *
-             FROM notebook.comment
-             WHERE bid = #{}) as c,
+            (
+                SELECT
+                    c1.cid,
+                    c1.sender_uid,
+                    c1.answer_uid,
+                    c1.bid,
+                    c1.content,
+                    c1.create_time,
+                    c1.modify_time,
+                    c1.like_number,
+                    i1.iid         'iid',
+                    i1.cid         'i_cid',
+                    i1.sender_uid  'i_sender_id',
+                    i1.answer_uid  'i_answer_uid',
+                    i1.create_time 'i_create_time',
+                    i1.modify_time 'i_modify_time',
+                    i1.content     'i_content',
+                    u1.nick_name   'i_sender_name',
+                    u2.nick_name   'i_answer_name'
+                FROM notebook.comment c1
+                    LEFT JOIN notebook.interactive i1 on c1.cid = i1.cid
+                    LEFT JOIN notebook.user u1 on u1.uid = i1.sender_uid
+                    LEFT JOIN notebook.user u2 on u2.uid = i1.answer_uid
+                WHERE c1.bid = #{bid}
+                ORDER BY i1.create_time ASC) as c,
             notebook.user s,
             notebook.user a
         WHERE
@@ -44,5 +84,14 @@
         DELETE FROM notebook.comment
         WHERE answer_uid = #{answer_uid}
     </delete>
+    <delete id="deleteCommentByCid">
+        DELETE FROM notebook.comment
+        WHERE cid = #{cid}
+    </delete>
+    <update id="addLikeNumber">
+        UPDATE notebook.comment
+        SET like_number = like_number + 1
+        WHERE cid = #{cid}
+    </update>
 </mapper>
 

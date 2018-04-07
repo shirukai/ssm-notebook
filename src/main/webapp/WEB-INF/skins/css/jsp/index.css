@@ -67,11 +67,11 @@ html, body {
     transform: scale(1.02, 1.02);
 }
 
-#row1 {
+#col1 {
     margin-bottom: 10px
 }
 
-#row1 .animation-active {
+#col1 .animation-active {
     background: white;
 }
 
@@ -178,4 +178,33 @@ html, body {
 
 .book-item:active {
     transform: scale(1.02, 1.02);
+}
+
+.user-info {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.info-foot {
+    height: 40px;
+}
+
+.info-title {
+    color: #1DA1F2;
+}
+
+.info-close {
+    color: #F56C6C;
+}
+
+.head > .avatar {
+    margin-top: 10px;
+    border: 1px solid #007bff;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.head > #avatarFile {
+    display: none;
 }

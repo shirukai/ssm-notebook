@@ -1,24 +1,59 @@
 //获取用户信息
-$(function () {
-    console.log(userInfo)
-    if (userInfo !== undefined) {
-        $.ajax({
-            url: API['getUserInfo'],
-            type: "GET",
-            data: {'uid': userInfo['uid']},
-            success: function (d) {
-                $('#userHeadImg').attr('src', d['data']['avatar']);
-                $('.nickName').text(d['data']['nickName']);
-                $('.useName').text(d['data']['userName']);
-                $('#noteNumber').text(d['data']['noteNumber']);
-                $('#bookNumber').text(d['data']['bookNumber'])
-            }
-        })
-    }
-    loadNote();
-    loadBooks();
-
+if (userInfo !== undefined) {
+    $.ajax({
+        url: API['getUserInfo'],
+        type: "GET",
+        data: {'uid': userInfo['uid']},
+        success: function (d) {
+            $('#userHeadImg').attr('src', d['data']['avatar']);
+            $('.nickName').text(d['data']['nickName']);
+            $('.useName').text(d['data']['userName']);
+            $('#noteNumber').text(d['data']['noteNumber']);
+            $('#bookNumber').text(d['data']['bookNumber'])
+        }
+    })
+}
+loadNote();
+loadBooks();
+if (myInfo) {
+    showUserInfo();
+}
+$('.info-close').click(function () {
+    window.history.go(-1)
+})
+//更改头像
+$('.head .avatar').bind('click', function () {
+    $('.head #avatarFile').click()
 });
+$('#avatarFile').change(function () {
+    //获取文件
+    var files = $(this)[0].files,
+        fileName = files[0].name,
+        fileType = getExpandedName(fileName),
+        ofr = new FileReader();
+    // ofr.readAsDataURL(files[0])
+    // ofr.onloadend = function (ev) {
+    // }
+    if (checkType(fileType)) {
+        uploadAvatar(files[0])
+    }
+})
+
+//更新用户信息
+$('#updateUser').click(function () {
+    $.ajax({
+        url: API['updateUserInfo'],
+        type: 'POST',
+        data: $('#updateFrom').serialize() + "&userName=" + userInfo['userName'] + "&uid=" + userInfo['uid'],
+        success: function (data) {
+            if (data['state'] === 1) {
+                Alert({type: 'alert-success', body: data['data']})
+            } else {
+                Alert({type: 'alert-danger', body: data['data']})
+            }
+        }
+    });
+})
 
 function target(e) {
     window.open($(e).attr('href'))
@@ -29,6 +64,7 @@ function loadNote() {
     $.ajax({
         url: API['getPublicNote'],
         type: 'GET',
+        data: {page: 1, pageSize: 6},
         success: function (result) {
             if (result['state'] !== 0) {
                 $.each(result['data'], function (index, info) {
@@ -134,4 +170,42 @@ function formatDate(date) {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('/');
+}
+
+function showUserInfo() {
+    $('.head .avatar').attr('src', userInfo['avatar']);
+    $('.head #avatar').val(userInfo['avatar']);
+    $('.info-body #userName').val(userInfo['userName']);
+    $('.info-body #nickName').val(userInfo['nickName'])
+}
+
+// 上传头像
+function uploadAvatar(file) {
+    var formdata = new FormData();
+    formdata.append('file', file);
+    $.ajax({
+        url: API['uploadAvatar'],
+        type: 'POST',
+        data: formdata,
+        // 告诉jQuery不要去处理发送的数据
+        processData: false,
+        // 告诉jQuery不要去设置Content-Type请求头
+        contentType: false,
+        success: function (data) {
+            $('.head .avatar').attr('src', data['qiniuUrl'])
+            $('.head #avatar').val(data['qiniuUrl'])
+        }
+    })
+}
+
+//封装获取扩展名的方法
+function getExpandedName(fileName) {
+    var index1 = fileName.lastIndexOf("."), index2 = fileName.length;
+    return fileName.substring(index1 + 1, index2);
+}
+
+//校验扩展名
+function checkType(type) {
+    var regType = "png,gif,jpg";
+    return regType.indexOf(type) > -1
 }
