@@ -90,6 +90,7 @@
             <!--查看笔记-->
             <div class="book wrapper" id="bookView">
                 <input type="hidden" id="b_id" value="">
+                <input type="hidden" id="t_id" value="">
                 <div class="pull-right">
                     <h6><span class="fa fa-clock-o"></span>&nbsp;&nbsp;创建时间：<span
                             id="b_time"></span></h6>

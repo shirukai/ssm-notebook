@@ -75,8 +75,8 @@ $('#b_delete').click(function () {
         body: '<h6>笔记删除后将无法恢复，确定要删除吗？</h6>',
         headerClass: '',
         okBtn: {
-            class: '',
-            text: ''
+            class: 'btn-primary',
+            text: '确定'
         },
         noBtn: {
             class: 'btn-danger',
@@ -92,7 +92,10 @@ $('#b_delete').click(function () {
                 data: {'bid': $('#b_id').val(), 'uid': userInfo['uid']},
                 success: function (data) {
                     bookTypeTable.destroy();
+                    bookListTable.destroy();
                     initTypeTable();
+                    initBookTable('bookByType', $('#t_id').val())
+                    changController('bookList')
                 }
             });
         }
@@ -145,8 +148,8 @@ function deleteType(tid) {
         body: '<h6>分类被删除后，该分类下的所有笔记将归类到为分类状态，确定要删除吗？</h6>',
         headerClass: '',
         okBtn: {
-            class: '',
-            text: ''
+            class: 'btn-primary',
+            text: '确定'
         },
         noBtn: {
             class: 'btn-danger',
@@ -186,6 +189,7 @@ function viewBookDetail(bid) {
         data: {'bid': bid},
         success: function (data) {
             if (data['state'] === 1) {
+                $('#t_id').val(data['data']['tid']);
                 $('#b_id').val(data['data']['bid']);
                 $('#b_time').text(getLocalTime(data['data']['createTime']));
                 $('#b_type').text(data['data']['type']).attr('title', data['data']['tid']);

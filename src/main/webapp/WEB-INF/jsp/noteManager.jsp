@@ -16,10 +16,7 @@
     <%--富文本编辑器--%>
     <div id="editorController" style="background: white">
         <div id="editor">
-            <h3>标题：</h3>
             <p>正文：</p>
-            <p><br></p>
-            <p><br></p>
         </div>
         <div class="options" style="padding: 20px">
             <button class="btn btn-primary" id="editorSave">新增</button>
