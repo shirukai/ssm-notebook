@@ -156,6 +156,7 @@ html, body {
 .showBookItems {
     background-color: #fff;
     padding: 20px 20px;
+    overflow: auto;
 }
 
 .book-item {
