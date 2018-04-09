@@ -14,10 +14,7 @@ import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 登录拦截
- * Created by shirukai on 2017/10/31.
- */
+
 public class LoginInterceptor implements HandlerInterceptor {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

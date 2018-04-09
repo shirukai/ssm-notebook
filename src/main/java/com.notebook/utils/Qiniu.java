@@ -20,7 +20,6 @@ import java.util.Map;
 
 /**
  * 七牛上传封装
- * Created by shirukai on 2017/11/9.
  */
 public class Qiniu {
     private static Logger logger = LoggerFactory.getLogger("七牛上传");
