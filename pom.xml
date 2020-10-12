@@ -34,7 +34,7 @@
             <!--为什么使用junit4？因为junit3是采用编程的方式运行junit，而junit4是采用注解的方式运行junit -->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
         <!--补全项目依赖-->
